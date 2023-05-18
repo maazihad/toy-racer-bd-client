@@ -24,7 +24,12 @@ const Navbar = () => {
                      {menuItems}
                   </ul>
                </div>
-               <img className="w-32" src={logo} alt="" />
+               <Link to="/">
+                  <div className="flex justify-center items-center">
+                     <img className="w-24" src={logo} alt="" />
+                     <h2 className="text-4xl font-bold relative">Toy-Racer <sup className="text-xs absolute top-1 -right-5">BD</sup> </h2>
+                  </div>
+               </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                <ul className="menu menu-horizontal px-1">
