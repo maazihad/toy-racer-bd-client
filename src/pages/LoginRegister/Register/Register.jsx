@@ -1,22 +1,47 @@
 import { Link } from "react-router-dom";
 import register from "../../../assets/register/register.json";
 import Lottie from "lottie-react";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
+   const { createUser } = useContext(AuthContext);
+
 
    const handleRegister = (event) => {
       event.preventDefault();
 
       const form = event.target;
+      const name = form.name.value;
       const email = form.email.value;
       const password = form.password.value;
+      const url = form.url.value;
 
       const regInfo = {
+         name,
          email,
          password,
+         url,
       };
-      // console.log(loginInfo);
+      console.log(regInfo);
+
+      createUser(email, password)
+         .then(result => {
+            const user = result.user;
+            console.log(user);
+            if (user) {
+               Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'User create successfully.',
+                  showConfirmButton: false,
+                  timer: 1000
+               });
+            }
+         })
+         .catch(error => console.log(error.message));
    };
 
    return (
