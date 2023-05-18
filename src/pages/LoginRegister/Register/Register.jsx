@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import register from "../../../assets/register/register.json";
-import Lottie from "lottie-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const Register = () => {
    const { createUser } = useContext(AuthContext);
-
+   const [showPassword, setShowPassword] = useState(false);
 
    const handleRegister = (event) => {
       event.preventDefault();
@@ -29,9 +28,9 @@ const Register = () => {
 
       createUser(email, password)
          .then(result => {
-            const user = result.user;
-            console.log(user);
-            if (user) {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            if (loggedUser) {
                Swal.fire({
                   position: 'center',
                   icon: 'success',
@@ -47,13 +46,13 @@ const Register = () => {
    return (
       <div className="hero min-h-screen bg-base-100">
          <div className="hero-content flex-col lg:flex-row">
-            <div className="text-center lg:text-left">
-               <Lottie className="w-[500px]" animationData={register} />
+            <div className="text-center lg:text-left ">
+               <img className="" src={`https://eply.com/wp-content/uploads/2021/12/ePly-1.jpg`} alt="" />
             </div>
-            <div className="card flex-shrink-0 w-full max-w-sm rounded-none shadow-md bg-red-100">
+            <div className="card  w-full max-w-sm rounded-none shadow-md bg-red-100">
                <div className="card-body">
                   <form onSubmit={handleRegister}>
-                     <h3 className="text-3xl font-bold text-center">Sign Up</h3>
+                     <h3 className="text-3xl font-bold mb-2">Create an account</h3>
                      {/* ===================Name================ */}
                      <div className="form-control">
                         <label className="label">
@@ -69,11 +68,21 @@ const Register = () => {
                         <input type="email" placeholder="email" name="email" className="input input-bordered" />
                      </div>
                      {/* ===================Password================ */}
-                     <div className="form-control">
+                     <div className="form-control relative">
                         <label className="label">
                            <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                        <input type={showPassword ? "text" : "password"} name="password" placeholder="password" className=" input input-bordered" />
+
+                        <span className='absolute right-5 top-12' onClick={() => setShowPassword(!showPassword)}>
+                           <small>
+                              {
+                                 showPassword
+                                    ? <FaEye className='cursor-pointer text-2xl text-red-500' />
+                                    : <FaEyeSlash className='cursor-pointer text-2xl text-red-700 ' />
+                              }
+                           </small>
+                        </span>
                      </div>
                      {/* ===================photo url================ */}
                      <div className="form-control">
@@ -84,13 +93,11 @@ const Register = () => {
                      </div>
                      <div className="form-control mt-6">
                         <button className="btn btn-primary capitalize bg-red-400 hover:bg-red-800 border-0">Sign Up</button>
-                        <p className="text-center text-xl"><small>Already have an account ? Please <Link to="/login" className="text-red-600 font-medium"> Login.</Link></small></p>
                      </div>
-
                   </form>
-
-
-
+                  <div>
+                     <p className="text-center text-xl"><small>Already have an account ? Please <Link to="/login" className="text-red-600 font-medium"> Login.</Link></small></p>
+                  </div>
                </div>
             </div>
          </div>

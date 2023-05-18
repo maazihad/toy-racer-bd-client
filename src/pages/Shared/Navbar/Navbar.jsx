@@ -1,15 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import userLogo from "../../../assets/user/user.png";
 import logo from "../../../assets/logo/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
+   const { user, logOut } = useContext(AuthContext);
 
-
+   const handleLogOut = () => {
+      logOut()
+         .then()
+         .catch(error => console.log(error.message));
+   };
 
    const menuItems = <>
       <li>
-         <Link to="/">Home</Link>
-         <Link to="/login">Login</Link>
+         <NavLink to="/" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+            Home
+         </NavLink>
+      </li>
+      <li>
+         {
+            user
+               ? <button onClick={handleLogOut}>Logout</button>
+               : <Link to="/login">Login</Link>
+         }
       </li>
    </>;
    return (

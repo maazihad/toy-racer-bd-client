@@ -1,7 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../../assets/login/login.json";
 import Lottie from "lottie-react";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
+
+
 const Login = () => {
+   const { signIn } = useContext(AuthContext);
+   const location = useLocation();
+   const navigate = useNavigate();
+   const from = location.state?.from?.pathname || '/';
 
    const handleLogin = (event) => {
       event.preventDefault();
@@ -14,8 +24,26 @@ const Login = () => {
          email,
          password,
       };
-      // console.log(loginInfo);
+      console.log(loginInfo);
+
+      signIn(email, password)
+         .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            if (loggedUser) {
+               Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Successfully login!!!',
+                  showConfirmButton: false,
+                  timer: 1000
+               });
+            }
+            navigate(from, { replace: true });
+         })
+         .catch(error => console.log(error.message));
    };
+
 
    return (
       <div className="hero min-h-screen bg-base-100">
@@ -49,6 +77,7 @@ const Login = () => {
                      </div>
                      <p className="text-center text-xl"><small>New user ? Please <Link to="/register" className="text-red-600 font-medium"> SignUp.</Link></small></p>
                   </form>
+                  <SocialLogin />
                </div>
             </div>
          </div>
