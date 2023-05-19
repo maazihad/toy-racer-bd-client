@@ -44,12 +44,12 @@ const Register = () => {
    };
 
    return (
-      <div className="hero min-h-screen bg-base-100">
-         <div className="hero-content flex-col lg:flex-row">
-            <div className="text-center lg:text-left ">
-               <img className="" src={`https://eply.com/wp-content/uploads/2021/12/ePly-1.jpg`} alt="" />
+      <div className="hero  bg-base-100 ">
+         <div className=" grid grid-cols-6 bg-purple-200">
+            <div className="text-center lg:text-left col-start-1 col-span-2 " >
+               <img className="object-cover lg:min-h-[600px]" src={`https://eply.com/wp-content/uploads/2021/12/ePly-1.jpg`} alt="" />
             </div>
-            <div className="card  w-full max-w-sm rounded-none shadow-md bg-red-100">
+            <div className="card w-full rounded-none shadow-md bg-red-100 col-start-3 col-span-6">
                <div className="card-body">
                   <form onSubmit={handleRegister}>
                      <h3 className="text-3xl font-bold mb-2">Create an account</h3>
