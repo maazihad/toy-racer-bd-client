@@ -57,11 +57,14 @@ const Navbar = () => {
                   <input type="text" placeholder="Search" className="input input-bordered" />
                </div>
                <a className="btn">Get started</a>
-               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                     <img src={userLogo} />
-                  </div>
-               </label>
+               {
+                  user &&
+                  <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                     <div className="w-10 rounded-full">
+                        <img src={userLogo} />
+                     </div>
+                  </label>
+               }
             </div>
          </div>
       </header>

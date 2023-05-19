@@ -2,9 +2,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../../assets/login/login.json";
 import Lottie from "lottie-react";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { toast } from "react-hot-toast";
 
 
 const Login = () => {
@@ -15,33 +16,54 @@ const Login = () => {
 
    const handleLogin = (event) => {
       event.preventDefault();
-
       const form = event.target;
       const email = form.email.value;
       const password = form.password.value;
+
+      if (!/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+         toast("Please provide a valid email");
+         return;
+      }
+      else if (!/(?=.*[A-Z])/.test(password)) {
+         toast('Please add at least one Uppercase.');
+         return;
+      }
+      else if (!/(?=.*[0-9])/.test(password)) {
+         toast('Please add at least on numeric number.');
+         return;
+      }
+      else if (!/(?=.*[!@#$%^&*])/.test(password)) {
+         toast('Please add a one special character.');
+         return;
+      }
+      else if (!/(?=.{6,})/.test(password)) {
+         toast('Please password must be 6 character.');
+         return;
+      }
+      else {
+         signIn(email, password)
+            .then(result => {
+               const loggedUser = result.user;
+               console.log(loggedUser);
+               if (loggedUser) {
+                  Swal.fire({
+                     position: 'center',
+                     icon: 'success',
+                     title: 'Successfully login!!!',
+                     showConfirmButton: false,
+                     timer: 1000
+                  });
+               }
+               navigate(from, { replace: true });
+            })
+            .catch(error => toast(error.message));
+      }
 
       const loginInfo = {
          email,
          password,
       };
       console.log(loginInfo);
-
-      signIn(email, password)
-         .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            if (loggedUser) {
-               Swal.fire({
-                  position: 'center',
-                  icon: 'success',
-                  title: 'Successfully login!!!',
-                  showConfirmButton: false,
-                  timer: 1000
-               });
-            }
-            navigate(from, { replace: true });
-         })
-         .catch(error => console.log(error.message));
    };
 
 
@@ -60,14 +82,14 @@ const Login = () => {
                         <label className="label">
                            <span className="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="email" name="email" className="input input-bordered" />
+                        <input type="email" name="email" placeholder="Email" className="input input-bordered" required />
                      </div>
                      {/* ===================Password================ */}
                      <div className="form-control">
                         <label className="label">
                            <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                         <label className="label">
                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
