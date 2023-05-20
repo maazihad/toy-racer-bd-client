@@ -20,6 +20,11 @@ const Navbar = () => {
          </NavLink>
       </li>
       <li>
+         <NavLink to="/blog" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+            Blog
+         </NavLink>
+      </li>
+      <li>
          {
             user
                ? <button onClick={handleLogOut}>Logout</button>

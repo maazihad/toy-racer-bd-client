@@ -1,6 +1,6 @@
 
 const GalleryCard = ({ galleryCard }) => {
-   const { _id, img, name, price } = galleryCard || {};
+   const { _id, img, name, price } = galleryCard;
    return (
       <div className="card bg-base-100 shadow-xl rounded-none">
          <img className="object-cover h-56" src={img} alt="Shoes" />

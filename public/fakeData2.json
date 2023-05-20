@@ -1,0 +1,68 @@
+[
+   {
+      "_id": "101",
+      "category": "Vintage Cars",
+      "cars": [
+         {
+            "car_id": 1,
+            "picture": "https://thumbs.dreamstime.com/b/vintage-white-toy-car-metallic-wheels-top-down-view-vintage-white-toy-car-metallic-wheels-top-down-view-isolated-122751117.jpg",
+            "name": "Classic Cruiser",
+            "price": "$29.99",
+            "rating": 4.5,
+            "details": "The Classic Cruiser is an iconic toy car that holds a special place in the hearts of collectors and enthusiasts. It first rolled onto the scene in the 1950s, capturing the essence of the era's American automobiles. With its timeless design and vibrant colors, the Classic Cruiser became an instant favorite among children and adults alike. Over the years, it has maintained its status as a beloved classic, embodying the nostalgia and charm of the golden age of automotive design. Many famous car enthusiasts and collectors have owned and cherished Classic Cruisers, further cementing its desirability and collectibility. Today, this legendary toy car continues to captivate vintage toy car enthusiasts who appreciate its enduring appeal and the memories it represents."
+         },
+         {
+            "car_id": 2,
+            "picture": "https://m.media-amazon.com/images/I/61V-4s0u12L._AC_SL1500_.jpg",
+            "name": "Retro Roadster",
+            "price": 34.99,
+            "rating": 4.2,
+            "details": "The Retro Roadster, introduced in the 1960s, epitomizes the spirit of sports cars from that era. Its low-slung body, curvaceous lines, and open-top design perfectly captured the essence of the roadsters of the time. This toy car quickly gained popularity for its sleek aesthetics and impressive speed. It became a symbol of freedom and adventure, representing the spirit of open-road cruising. The Retro Roadster played a significant role in inspiring generations of automobile enthusiasts, igniting their passion for classic sports cars. Even as a toy car, it embodies the aspirations and dreams of those who long for the thrill of the open road. Today, the Retro Roadster remains an iconic piece of automotive nostalgia, evoking a sense of joy and excitement for collectors and fans of vintage toys."
+         }
+      ]
+   },
+   {
+      "_id": "102",
+      "category": "Racing Cars",
+      "cars": [
+         {
+            "car_id": 3,
+            "picture": "https://www.coleka.com/media/item/202208/17/cars-on-the-road-speed-demon-001.webp",
+            "name": "Speed Demon",
+            "price": 39.99,
+            "rating": 4.8,
+            "details": "The Speed Demon is a legendary toy car that has carved its name in the history of toy racing cars. It burst onto the scene with a thunderous roar in the racing world during its debut in the late 1970s. With its aerodynamic design and powerful engine, the Speed Demon quickly gained a reputation for unmatched speed and adrenaline-pumping races. It became the dream car for young speed enthusiasts, igniting their imaginations and fueling their passion for high-octane racing. The Speed Demon's agility and precision on the track made it a force to be reckoned with, leaving a trail of victory in its wake. To this day, it stands as a testament to the spirit of competition and the pursuit of speed, captivating racing enthusiasts of all ages."
+         },
+         {
+            "car_id": 4,
+            "picture": "https://cdn.shopify.com/s/files/1/3002/8962/products/C82-1_700x700.jpg?v=1678691567",
+            "name": "Turbo Thrasher",
+            "price": 44.99,
+            "rating": 4.6,
+            "details": "The Turbo Thrasher is a toy car that was born to dominate the race tracks. Introduced in the 1980s, it quickly became a symbol of speed and power. With its sleek and aggressive design, the Turbo Thrasher was built to leave competitors in the dust. Its turbocharged engine and advanced aerodynamics gave it a significant edge on the racecourse. Young racing enthusiasts were captivated by its lightning-fast acceleration and precision handling. The Turbo Thrasher pushed the boundaries of toy car technology, showcasing the latest advancements in performance and design. Its relentless pursuit of victory and exhilarating races made it a legend in the world of toy racing cars, etching its name in the hearts of racing enthusiasts around the world."
+         }
+      ]
+   },
+   {
+      "_id": "103",
+      "category": "Off-Road Cars",
+      "cars": [
+         {
+            "car_id": 5,
+            "picture": "https://i.ebayimg.com/images/g/Y-AAAOSw70Ri8B4H/s-l500.jpg",
+            "name": "Mud Mauler",
+            "price": 49.99,
+            "rating": 4.4,
+            "details": "The Mud Mauler is a rugged toy car that thrives in the off-road realm. It burst onto the scene in the early 1990s, designed to conquer any terrain in its path. With its raised suspension, oversized tires, and durable construction, the Mud Mauler was built for adventure. Off-road enthusiasts and young explorers embraced this toy car as their ticket to thrilling outdoor escapades. Whether it was conquering rocky trails or plowing through muddy puddles, the Mud Mauler showcased its prowess in off-road challenges. Its ability to tackle the toughest terrains made it a favorite among adventure-seeking children and toy car enthusiasts alike. Even today, the Mud Mauler continues to inspire a sense of adventure and resilience, reminding us of the thrill and excitement of off-road exploration."
+         },
+         {
+            "car_id": 6,
+            "picture": "https://images.meesho.com/images/products/74063904/ijzvq_512.webp",
+            "name": "Rock Racer",
+            "price": 54.99,
+            "rating": 4.7,
+            "details": "The Rock Racer emerged on the toy car scene in the early 2000s, blending the worlds of off-road racing and rock crawling. This unique hybrid quickly captured the imagination of toy car enthusiasts who sought the ultimate off-road experience. With its robust chassis, specialized suspension, and oversized tires, the Rock Racer was engineered to conquer the most challenging terrains. Its ability to navigate treacherous obstacles, such as steep rocks and jagged trails, made it a favorite among adventurous young minds. The Rock Racer became a symbol of versatility and resilience, combining the speed and agility of a racer with the durability and traction of an off-road vehicle. Today, it continues to inspire those who crave thrilling off-road adventures, pushing the boundaries of what toy cars can accomplish."
+         }
+      ]
+   }
+]
