@@ -25,17 +25,17 @@ const Navbar = () => {
          </NavLink>
       </li>
       <li>
-         <NavLink to="/alltoys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+         <NavLink to="/allToys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
             All Toys
          </NavLink>
       </li>
       <li>
-         <NavLink to="/addtoy" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+         <NavLink to="/addAToy" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
             Add a Toy
          </NavLink>
       </li>
       <li>
-         <NavLink to="/mytoys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+         <NavLink to="/myToys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
             My Toys
          </NavLink>
       </li>

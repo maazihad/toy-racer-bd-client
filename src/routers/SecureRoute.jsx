@@ -1,21 +1,21 @@
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import Spinner from "../pages/Shared/Spinner/Spinner";
 
 const SecureRoute = ({ children }) => {
 
    const { user, loading } = useContext(AuthContext);
    const location = useLocation();
-   console.log(location);
+   // console.log(location);
 
    if (loading) {
-      return <progress className="progress w-56"></progress>;
+      return <Spinner />;
    }
-
-   if (user?.email) {
-      return children;
+   if (!user) {
+      return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
    }
-   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
+   return children;
 };
 
 export default SecureRoute;

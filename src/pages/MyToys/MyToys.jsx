@@ -1,17 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ToyRow from './ToyRow';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../providers/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const MyToys = () => {
-
    const [toys, setMyToys] = useState([]);
+   const { user } = useContext(AuthContext);
+   const navigate = useNavigate();
+   const url = `http://localhost:5555/myToys?email=${user?.email}`;
    useEffect(() => {
-      fetch('http://localhost:5555/myToys', {
+      fetch(url, {
          method: 'GET',
+         headers: {
+            authorization: `bearer ${localStorage.getItem('my-toys-access-token')}`
+         }
       })
          .then(res => res.json())
-         .then(data => setMyToys(data));
-   }, []);
+         .then(data => {
+            if (!data.err) {
+               setMyToys(data);
+            }
+            else {
+               navigate('/');
+            }
+         });
+   }, [url, navigate]);
 
    const handleDeleteTheToy = id => {
       console.log(id);
