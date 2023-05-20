@@ -1,11 +1,23 @@
 import { Link, NavLink } from "react-router-dom";
 import userLogo from "../../../assets/user/user.png";
 import logo from "../../../assets/logo/logo.png";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import axios from 'axios';
 
 const Navbar = () => {
    const { user, logOut } = useContext(AuthContext);
+   const [isHovered, setIsHovered] = useState(false);
+
+
+   const handleMouseEnter = () => {
+      setIsHovered(true);
+   };
+
+   const handleMouseLeave = () => {
+      setIsHovered(false);
+   };
+
 
    const handleLogOut = () => {
       logOut()
@@ -83,14 +95,30 @@ const Navbar = () => {
                   <input type="text" placeholder="Search" className="input input-bordered" />
                </div>
 
-               {
-                  user &&
-                  <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                     <div className="w-10 rounded-full">
-                        <img src={userLogo} />
-                     </div>
-                  </label>
-               }
+               <div
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+               >
+                  {
+                     user &&
+                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                           <img src={user.photoURL ? user.photoURL : userLogo} />
+                        </div>
+                     </label>
+                  }
+                  {
+                     isHovered && (
+                        <div className="absolute right-2 mt-1 py-2 w-48 bg-red-100 rounded-md shadow-xl  z-50">
+                           <div className="px-4 py-3">
+                              <p className="text-sm font-medium text-gray-900">
+                                 {user?.displayName}
+                              </p>
+                           </div>
+                        </div>
+                     )
+                  }
+               </div>
             </div>
          </div>
       </header>

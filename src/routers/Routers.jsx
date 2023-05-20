@@ -9,6 +9,7 @@ import AllToys from "../pages/AllToys/AllToys";
 import AddToy from "../pages/AddToy/AddToy";
 import MyToys from "../pages/MyToys/MyToys";
 import SecureRoute from "./SecureRoute";
+import UpdateToys from "../pages/MyToys/UpdateToys";
 
 const router = createBrowserRouter([
    {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
          {
             path: '/myToys',
             element: <SecureRoute><MyToys /></SecureRoute>
+         },
+         {
+            path: '/updateToys/:id',
+            element: <UpdateToys />,
+            loader: ({ params }) => fetch(`http://localhost:5555/myToys/${params.id}`)
          }
       ]
    }

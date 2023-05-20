@@ -63,24 +63,23 @@ const MyToys = () => {
 
 
    return (
-      <section>
-         <h2 className="text-center text-5xl mb-5  text-red-700 font-bold">My Toys : {toys.length}</h2>
+      <section className='bg-red-100 min-h-[calc(100vh-50px)]'>
+         <h2 className="text-center text-3xl py-5 text-red-700 font-bold">My Toys : {toys.length}</h2>
 
-         <div className="overflow-x-auto w-full">
-            <table className="table w-full">
+         <div className="overflow-x-auto w-full max-w-7xl mx-auto">
+            <table className="table table-zebra w-full ">
                {/* head */}
-               <thead>
-                  <tr>
+               <thead className="rounded-none">
+                  <tr className='text-red-900 font-bold'>
                      <th>Toy Photo & Product Name</th>
-                     <th>User Name</th>
-                     <th>User Email</th>
-                     <th>Price</th>
-                     <td>Quantity</td>
-                     <th>Status</th>
+                     <th>Added by</th>
+                     <th>Email</th>
+                     <th className="text-center">Price</th>
+                     <td className="text-center">Quantity</td>
+                     <th className="text-center">Status</th>
                   </tr>
                </thead>
                <tbody>
-                  {/* row 1 */}
                   {
                      toys.map(toy => <ToyRow
                         key={toy._id}

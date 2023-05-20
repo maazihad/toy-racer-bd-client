@@ -44,6 +44,7 @@ const AuthProvider = ({ children }) => {
             const loggedUser = {
                email: currentUser?.email
             };
+
             fetch('http://localhost:5555/jwt', {
                method: 'POST',
                headers: {

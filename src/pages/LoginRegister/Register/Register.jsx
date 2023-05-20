@@ -3,9 +3,12 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { updateCurrentUser } from "firebase/auth";
 
 
 const Register = () => {
+   const [userName, setUserName] = useState('');
+   const [photoURL, setPhotoURL] = useState('');
    const { createUser } = useContext(AuthContext);
    const [showPassword, setShowPassword] = useState(false);
 
@@ -17,7 +20,7 @@ const Register = () => {
       const email = form.email.value;
       const password = form.password.value;
       const url = form.url.value;
-
+      updateCurrentUser;
       const regInfo = {
          name,
          email,
@@ -29,6 +32,10 @@ const Register = () => {
       createUser(email, password)
          .then(result => {
             const loggedUser = result.user;
+            loggedUser.updateProfile({
+               displayName: name,
+               photoURL: url,
+            });
             console.log(loggedUser);
             if (loggedUser) {
                Swal.fire({
