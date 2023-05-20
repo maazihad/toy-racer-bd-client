@@ -4,7 +4,7 @@ import GalleryCard from "./GalleryCard";
 const Gallery = () => {
    const [gallery, setGallery] = useState([]);
    useEffect(() => {
-      fetch('https://toy-racer-bd-server.vercel.app/gallery')
+      fetch('http://localhost:5555/gallery')
          .then(res => res.json())
          .then(data => {
             // console.log(data);

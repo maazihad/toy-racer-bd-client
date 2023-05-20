@@ -25,6 +25,21 @@ const Navbar = () => {
          </NavLink>
       </li>
       <li>
+         <NavLink to="/alltoys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+            All Toys
+         </NavLink>
+      </li>
+      <li>
+         <NavLink to="/addtoy" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+            Add a Toy
+         </NavLink>
+      </li>
+      <li>
+         <NavLink to="/mytoys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+            My Toys
+         </NavLink>
+      </li>
+      <li>
          {
             user
                ? <button onClick={handleLogOut}>Logout</button>
@@ -61,7 +76,7 @@ const Navbar = () => {
                <div className="form-control">
                   <input type="text" placeholder="Search" className="input input-bordered" />
                </div>
-               <a className="btn">Get started</a>
+
                {
                   user &&
                   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
