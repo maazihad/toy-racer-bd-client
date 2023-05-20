@@ -29,16 +29,22 @@ const Navbar = () => {
             All Toys
          </NavLink>
       </li>
-      <li>
-         <NavLink to="/addAToy" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
-            Add a Toy
-         </NavLink>
-      </li>
-      <li>
-         <NavLink to="/myToys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
-            My Toys
-         </NavLink>
-      </li>
+      {
+         user &&
+         <li>
+            <NavLink to="/addAToy" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+               Add a Toy
+            </NavLink>
+         </li>
+      }
+      {
+         user &&
+         <li>
+            <NavLink to="/myToys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
+               My Toys
+            </NavLink>
+         </li>
+      }
       <li>
          {
             user
