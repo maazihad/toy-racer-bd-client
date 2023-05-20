@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
 
@@ -8,7 +9,31 @@ const AddToy = () => {
    const { register, handleSubmit, watch, formState: { errors } } = useForm();
    const onSubmit = data => {
       console.log(data);
+
+      fetch('http://localhost:5555/myToys', {
+         method: 'POST',
+         headers: {
+            'content-type': 'application/json',
+         },
+         body: JSON.stringify(data)
+      })
+         .then(res => res.json())
+         .then(data => {
+            console.log(data);
+            if (data.insertedId) {
+               Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Successfully add a Toy',
+                  showConfirmButton: false,
+                  timer: 1000
+               });
+            }
+         });
+
    };
+
+
 
    return (
       <section className="bg-red-100 min-h-[calc(100vh-50px)]">
@@ -64,10 +89,19 @@ const AddToy = () => {
                         <span className="label-text text-lg">Category</span>
                      </label>
                      <select className="text-input input input-bordered" {...register("category")}>
-                        <option value="Vintage Toy">Vintage Toy</option>
-                        <option value="Sports Toy">Sports Toy</option>
-                        <option value="Mud Muller Toy">Mud Muller Toy</option>
-                        <option value="Remote Toy">Remote Toy</option>
+                        <option value="Vintage Toy Car">Vintage Toy Car</option>
+                        <option value="Sports Toy Car">Sports Toy Car</option>
+                        <option value="Mud Muller Toy Car">Mud Muller Toy Car</option>
+                        <option value="Classic Cruiser Toy Car">Classic Cruiser Toy Car</option>
+                        <option value="Die-cast Toy Car">Die-cast Toy Car</option>
+                        <option value="Vintage Toy Car">Vintage Toy Car</option>
+                        <option value="Remote-Controlled Toy Car">Remote-Controlled Toy Car</option>
+                        <option value="Friction-Powered Toy Car">Friction-Powered Toy Car</option>
+                        <option value="Pull-Back Toy Car">Pull-Back Toy Car</option>
+                        <option value="Slot Toy Car">Slot Toy Car</option>
+                        <option value="Wooden Toy Car">Wooden Car</option>
+                        <option value="Construction Toy Car">Construction Toy Car</option>
+                        <option value="Character Toy Car">Character Toy Car</option>
                      </select>
                   </div>
 

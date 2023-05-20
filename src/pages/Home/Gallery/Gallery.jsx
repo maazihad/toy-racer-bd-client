@@ -4,7 +4,7 @@ import GalleryCard from "./GalleryCard";
 const Gallery = () => {
    const [gallery, setGallery] = useState([]);
    useEffect(() => {
-      fetch('http://localhost:5555/gallery')
+      fetch('http://localhost:5555/galleries')
          .then(res => res.json())
          .then(data => {
             // console.log(data);
