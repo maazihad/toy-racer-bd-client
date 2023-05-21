@@ -35,14 +35,14 @@ const Blog = () => {
                <div className="collapse-content text-red-900">
                   <p className="text-lg">
                      <strong>SQL(Structured Query Language) and NoSQL(Not Only Structured Query Language) databases are two different types of database management systems: Here&apos;s comparison between SQL & NoSQL : </strong>
-                     <ol>
-                        <li><b>1 :</b> SQL databases are primarily callded RDBMS or Relational databases. On the other hand, NoSQL databases are primarily called as Non-relational or distributed database. </li>
-                        <li><b>2 :</b> SQL is a structured query language. On the other hand, NoSQL is a No declarative query language. </li>
-                        <li><b>3 :</b> SQL databases are table-based databases. On the other hand, NoSQL databases can be document based, key-value pairs, graph databases. </li>
-                        <li><b>4 :</b> SQL databases have a predefined schema. On the other hand, NoSQL databases use dynamic schema for unstructured data.</li>
-                        <li><b>4 :</b> Oracle, Postgres, MySQL and MS-SQL on based SQL. On the other hand, MongoDB, Redis, Neo4j, Cassandra, Hbase on based NoSQL.</li>
-                     </ol>
                   </p>
+                  <ol>
+                     <li><b>1 :</b> SQL databases are primarily callded RDBMS or Relational databases. On the other hand, NoSQL databases are primarily called as Non-relational or distributed database. </li>
+                     <li><b>2 :</b> SQL is a structured query language. On the other hand, NoSQL is a No declarative query language. </li>
+                     <li><b>3 :</b> SQL databases are table-based databases. On the other hand, NoSQL databases can be document based, key-value pairs, graph databases. </li>
+                     <li><b>4 :</b> SQL databases have a predefined schema. On the other hand, NoSQL databases use dynamic schema for unstructured data.</li>
+                     <li><b>5 :</b> Oracle, Postgres, MySQL and MS-SQL on based SQL. On the other hand, MongoDB, Redis, Neo4j, Cassandra, Hbase on based NoSQL.</li>
+                  </ol>
 
                </div>
             </div>
@@ -89,8 +89,6 @@ const Blog = () => {
                      <li><b>Limiting Stage : </b> The <code>$limit</code> stage restricts the number of documents that will be passed to the subsequent stages.</li>
                      <li><b>Skip Stage : </b> The <code>$skip</code> stage skips a specified number of documents in the pipeline.</li>
                   </p>
-
-
                </div>
             </div>
          </div>
