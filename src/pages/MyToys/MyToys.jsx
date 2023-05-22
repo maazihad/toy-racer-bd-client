@@ -5,61 +5,17 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
 const MyToys = () => {
-   const [toys, setMyToys] = useState([]);
    const { user } = useContext(AuthContext);
-   // const navigate = useNavigate();
-
+   const [toys, setMyToys] = useState([]);
    const [control, setControl] = useState(false);
 
    useEffect(() => {
       fetch(`http://localhost:5555/myToys/${user?.email}`)
          .then((res) => res.json())
          .then((data) => {
-            console.log(data);
             setMyToys(data);
          });
    }, [user, control]);
-
-   // const handleJobUpdate = (data) => {
-   //    console.log(data);
-   //    fetch(`http://localhost:5555/updateJob/${data._id}`, {
-   //       method: "PUT",
-   //       headers: { "Content-Type": "application/json" },
-   //       body: JSON.stringify(data),
-   //    })
-   //       .then((res) => res.json())
-   //       .then((result) => {
-   //          if (result.modifiedCount > 0) {
-   //             setControl(!control);
-   //          }
-   //          console.log(result);
-   //       });
-   // };
-
-
-   // const url = `http://localhost:5555/myToys?email=${user?.email}`;
-   // useEffect(() => {
-   //    fetch(url, {
-   //       method: 'GET',
-   //       headers: {
-   //          authorization: `bearer ${localStorage.getItem('my-toys-access-token')}`
-   //       }
-   //    })
-   //       .then(res => res.json())
-   //       .then(data => {
-   //          if (!data.err) {
-   //             setMyToys(data);
-   //          }
-   //          else {
-   //             navigate('/');
-   //          }
-   //       });
-   // }, [url, navigate]);
-
-
-
-
-
 
    const handleDeleteTheToy = id => {
       console.log(id);
@@ -94,6 +50,40 @@ const MyToys = () => {
       });
    };
 
+   const handleMyToyUpdate = data => {
+      console.log(data);
+      Swal.fire({
+         title: 'Are you sure?',
+         text: "You won't be able to revert this!",
+         icon: 'success',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Yes, update it!'
+      }).then((result) => {
+         if (result.isConfirmed) {
+            fetch(`http://localhost:5555/myToys/${data?._id}`, {
+               method: 'PUT',
+               headers: {
+                  'content-type': 'application/json',
+               },
+               body: JSON.stringify(data)
+            })
+               .then(res => res.json())
+               .then(data => {
+                  console.log(data);
+                  if (data.modifiedCount > 0) {
+                     Swal.fire(
+                        'Updated!',
+                        'Toy has been updated.',
+                        'success'
+                     );
+                     setControl(!control);
+                  }
+               });
+         }
+      });
+   };
 
 
    return (
@@ -119,6 +109,7 @@ const MyToys = () => {
                         key={toy._id}
                         toy={toy}
                         handleDeleteTheToy={handleDeleteTheToy}
+                        handleMyToyUpdate={handleMyToyUpdate}
                      >
                      </ToyRow>)
                   }
