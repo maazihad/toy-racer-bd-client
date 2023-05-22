@@ -91,9 +91,7 @@ const Navbar = () => {
                </ul>
             </div>
             <div className="navbar-end space-x-4">
-               <div className="form-control">
-                  <input type="text" placeholder="Search" className="input input-bordered" />
-               </div>
+
 
                <div
                   onMouseEnter={handleMouseEnter}

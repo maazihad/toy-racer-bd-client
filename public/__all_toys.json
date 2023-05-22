@@ -1,7 +1,7 @@
 [
    {
       "picture": "https://m.media-amazon.com/images/I/81KDL-G2nRL._AC_SL1500_.jpg",
-      "name": "Remote Control Sports Car",
+      "toyName": "Remote Control Sports Car",
       "subCategory": [
          "Remote Control Cars",
          "Sports Cars",
@@ -16,7 +16,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71rS5LD7b7L._AC_SL1500_.jpg",
-      "name": "Construction Truck Set",
+      "toyName": "Construction Truck Set",
       "subCategory": [
          "Construction Toys",
          "Trucks",
@@ -31,7 +31,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/81uxyqIdx1L.jpg",
-      "name": "Race Track Set",
+      "toyName": "Race Track Set",
       "subCategory": [
          "Race Tracks",
          "Car Tracks",
@@ -46,7 +46,7 @@
    },
    {
       "picture": "https://static-01.daraz.com.bd/p/a0ec1fe85ae3c884ec29ad6def184fdc.jpg_720x720.jpg_.webp",
-      "name": "Monster Truck",
+      "toyName": "Monster Truck",
       "subCategory": [
          "Monster Trucks",
          "Off-Road Vehicles",
@@ -61,7 +61,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/910i-6BN5LL.jpg",
-      "name": "Police Car Set",
+      "toyName": "Police Car Set",
       "subCategory": [
          "Police Toys",
          "Car Sets",
@@ -76,7 +76,7 @@
    },
    {
       "picture": "https://images-cdn.ubuy.co.in/633a9ce118bb2e5d093c4a9a-rlaarlo-rc-cars-1-14-remote-control-car.jpg",
-      "name": "RC Off-Road Buggy",
+      "toyName": "RC Off-Road Buggy",
       "subCategory": [
          "Remote Control Cars",
          "Off-Road Vehicles",
@@ -91,7 +91,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81cNXVVbMLL._AC_SL1500_.jpg",
-      "name": "Fire Truck",
+      "toyName": "Fire Truck",
       "subCategory": [
          "Fire Trucks",
          "Emergency Vehicles",
@@ -106,7 +106,7 @@
    },
    {
       "picture": "https://images-na.ssl-images-amazon.com/images/I/51jxC3MgBKL._UL500_.jpg",
-      "name": "Race Car Track Set",
+      "toyName": "Race Car Track Set",
       "subCategory": [
          "Race Tracks",
          "Car Tracks",
@@ -121,7 +121,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/61y00xvqQCL._SL1000_.jpg",
-      "name": "Diecast Muscle Car Collection",
+      "toyName": "Diecast Muscle Car Collection",
       "subCategory": [
          "Diecast Cars",
          "Muscle Cars",
@@ -136,7 +136,7 @@
    },
    {
       "picture": "https://rukminim1.flixcart.com/image/800/800/jjiw1ow0/remote-control-toy/n/e/r/remote-controlled-rock-crawler-rc-monster-truck-4wd-off-road-original-imaf7fr8zkxfs5cg.jpeg?q=90",
-      "name": "RC Monster Truck",
+      "toyName": "RC Monster Truck",
       "subCategory": [
          "Remote Control Cars",
          "Monster Trucks",
@@ -151,7 +151,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/91aVOFkXTBL._AC_SL1500_.jpg",
-      "name": "Car Transporter Truck",
+      "toyName": "Car Transporter Truck",
       "subCategory": [
          "Trucks",
          "Play Vehicles",
@@ -166,7 +166,7 @@
    },
    {
       "picture": "https://i.ebayimg.com/images/g/2V0AAOSwVSFfF-iO/s-l1600.jpg",
-      "name": "Formula 1 Racing Set",
+      "toyName": "Formula 1 Racing Set",
       "subCategory": [
          "Race Tracks",
          "Formula 1",
@@ -181,7 +181,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/71PZDQ1LbzL._AC_SY355_.jpg",
-      "name": "Off-Road Adventure Set",
+      "toyName": "Off-Road Adventure Set",
       "subCategory": [
          "Off-Road Vehicles",
          "Adventure Sets",
@@ -196,7 +196,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/51jTMuoRkkL._AC_SY780_.jpg",
-      "name": "Stunt Car Set",
+      "toyName": "Stunt Car Set",
       "subCategory": [
          "Stunt Cars",
          "Play Vehicles",
@@ -211,7 +211,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/71BkMiYDwML.jpg",
-      "name": "Emergency Response Vehicle Set",
+      "toyName": "Emergency Response Vehicle Set",
       "subCategory": [
          "Emergency Vehicles",
          "Play Vehicles",
@@ -226,7 +226,7 @@
    },
    {
       "picture": "https://images-cdn.ubuy.co.in/633ae7f2f458a144c3447a42-remote-control-car-x-toyz-high-speed.jpg",
-      "name": "RC Drift Car",
+      "toyName": "RC Drift Car",
       "subCategory": [
          "Remote Control Cars",
          "Drift Cars",
@@ -241,7 +241,7 @@
    },
    {
       "picture": "https://www.hamleys.com/media/catalog/product/7/6/761742_alt5_5iepx0ijtxzntcjr.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:",
-      "name": "Car Wash Playset",
+      "toyName": "Car Wash Playset",
       "subCategory": [
          "Playsets",
          "Car Sets",
@@ -256,7 +256,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/81wWMPHIy+L.jpg",
-      "name": "Monster Jam Grave Digger",
+      "toyName": "Monster Jam Grave Digger",
       "subCategory": [
          "Monster Trucks",
          "Play Vehicles",
@@ -271,7 +271,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/8165tYYE6oL._AC_SL1500_.jpg",
-      "name": "Construction Vehicle Set",
+      "toyName": "Construction Vehicle Set",
       "subCategory": [
          "Construction Toys",
          "Play Vehicles",
@@ -286,7 +286,7 @@
    },
    {
       "picture": "https://m.media-amazon.com/images/I/51F7tfXUJFL.jpg",
-      "name": "Remote Control Speedboat",
+      "toyName": "Remote Control Speedboat",
       "subCategory": [
          "Remote Control Boats",
          "Water Toys",

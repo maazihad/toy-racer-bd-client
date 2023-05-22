@@ -1,8 +1,12 @@
-
+import React from 'react';
 import { Link } from "react-router-dom";
 import UpdateToys from "./UpdateToys";
+import { useState } from "react";
 
 const ToyRow = ({ toy, handleDeleteTheToy }) => {
+
+   const [modalShow, setModalShow] = React.useState();
+
    // console.log(toy);
    const { _id, category, details, email, name, price, quantity, rating, seller, url } = toy;
    return (
@@ -31,9 +35,13 @@ const ToyRow = ({ toy, handleDeleteTheToy }) => {
          <td className="text-center">{quantity}</td>
          <td className="text-center">
             <div className="space-x-1">
-               <Link to={`/updateToys/${_id}`}>
+               {/* <Link to={`/updateToys/${_id}`}>
                   <button className="btn btn-sm px-2 capitalize bg-blue-700 hover:bg-red-900">Update</button>
-               </Link>
+               </Link> */}
+               <button className="btn btn-sm px-2 capitalize bg-blue-700 hover:bg-red-900">Update</button>
+
+               <label htmlFor="my-modal-3" className="btn btn-sm px-2 capitalize bg-blue-700 hover:bg-red-900">update</label>
+
                <button onClick={() => handleDeleteTheToy(_id)} className="btn btn-sm px-2 capitalize bg-red-700 hover:bg-red-900">Delete</button>
             </div>
          </td>

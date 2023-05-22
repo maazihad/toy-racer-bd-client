@@ -1,31 +1,38 @@
-import React from 'react';
+
+import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
-const AllToysTable = ({ toy }) => {
-
-   const { _id, picture, name, subCategory, sellerName, sellerEmail, price, rating, availableQuantity, details } = toy;
+const AllToysTable = ({ toy, index }) => {
+   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+   const { _id, picture, toyName, subCategory, sellerName, sellerEmail, price, rating, availableQuantity, details } = toy;
 
 
 
    return (
       <tr className="text-md">
          <td>
-            {sellerName}
+            {index + 1}
+         </td>
+         <td className="font-bold">
+            {sellerName ? sellerName : null}
          </td>
          <td>
-            {name}
+            {toyName}
          </td>
-         <td>{subCategory.map((singleName, i) => <li
-            key={i}
-         >
-            {singleName}
-         </li>)}</td>
+         <td>
+
+            <select className="text-input input input-bordered w-52 border-0 " {...register("category")}>
+               {
+                  subCategory.map((singleName, i) => <option key={i}>{singleName}</option>)
+               }
+            </select>
+         </td>
          <td className="text-center">{price}</td>
          <td className="text-center">{availableQuantity}</td>
          <td className="text-center">
             <div className="space-x-1">
                <Link to={`/toy/${_id}`}>
-                  <button className="btn btn-sm px-2 capitalize bg-blue-700 hover:bg-red-900">View Details</button>
+                  <button className="btn btn-sm px-2 capitalize border-0 bg-red-700 hover:bg-red-900">View Details</button>
                </Link>
 
             </div>

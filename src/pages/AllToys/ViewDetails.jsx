@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const ViewDetails = () => {
    const toys = useLoaderData();
+   console.log(toys);
    const { _id, picture, name, sellerName, sellerEmail, price, rating, availableQuantity, details } = toys;
 
    console.log(toys);
