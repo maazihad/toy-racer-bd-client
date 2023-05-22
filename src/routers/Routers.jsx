@@ -10,6 +10,7 @@ import AddToy from "../pages/AddToy/AddToy";
 import MyToys from "../pages/MyToys/MyToys";
 import SecureRoute from "./SecureRoute";
 import UpdateToys from "../pages/MyToys/UpdateToys";
+import ViewDetails from "../pages/AllToys/ViewDetails";
 
 const router = createBrowserRouter([
    {
@@ -35,7 +36,13 @@ const router = createBrowserRouter([
          },
          {
             path: '/allToys',
-            element: <AllToys />
+            element: <AllToys />,
+            loader: () => fetch('http://localhost:5555/allToys')
+         },
+         {
+            path: "/toy/:id",
+            element: <SecureRoute><ViewDetails></ViewDetails></SecureRoute>,
+            loader: ({ params }) => fetch(`http://localhost:5555/allToys/${params.id}`)
          },
          {
             path: '/addAToy',
@@ -47,7 +54,7 @@ const router = createBrowserRouter([
          },
          {
             path: '/updateToys/:id',
-            element: <UpdateToys />,
+            element: <SecureRoute><UpdateToys /></SecureRoute>,
             loader: ({ params }) => fetch(`http://localhost:5555/myToys/${params.id}`)
          }
       ]

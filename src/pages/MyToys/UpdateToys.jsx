@@ -4,14 +4,15 @@ import Swal from "sweetalert2";
 
 const UpdateToys = () => {
    const toy = useLoaderData();
-   const { _id, price, quantity, details } = toy;
    console.log(toy);
+   const { _id, price, quantity, details } = toy;
+   console.log(_id);
 
    // const { user } = useContext(AuthContext);
    const { register, handleSubmit, formState: { errors } } = useForm();
 
-   const onSubmit = updateToy => {
-      console.log(updateToy);
+   const onSubmit = data => {
+      console.log(data);
 
       Swal.fire({
          title: 'Are you sure?',
@@ -20,11 +21,15 @@ const UpdateToys = () => {
          showCancelButton: true,
          confirmButtonColor: '#3085d6',
          cancelButtonColor: '#d33',
-         confirmButtonText: 'Yes, delete it!'
+         confirmButtonText: 'Yes, update it!'
       }).then((result) => {
          if (result.isConfirmed) {
             fetch(`http://localhost:5555/myToys/${_id}`, {
-               method: 'DELETE'
+               method: 'PUT',
+               headers: {
+                  'content-type': 'application/json',
+               },
+               body: JSON.stringify(data)
             })
                .then(res => res.json())
                .then(data => {
