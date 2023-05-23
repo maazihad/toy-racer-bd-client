@@ -10,7 +10,6 @@ const AddToy = () => {
    const { register, handleSubmit, watch, formState: { errors } } = useForm();
    const onSubmit = data => {
       console.log(data);
-
       fetch('http://localhost:5555/myToys', {
          method: 'POST',
          headers: {
@@ -34,8 +33,6 @@ const AddToy = () => {
 
    };
 
-
-
    return (
       <>
          <Helmet>
@@ -46,6 +43,7 @@ const AddToy = () => {
             <h2 className="text-4xl text-center font-black text-red-700 py-10">Add a toys here</h2>
             <div className="max-w-7xl mx-auto pb-10">
                <form onSubmit={handleSubmit(onSubmit)}>
+                  {errors.exampleRequired && <span>This field is required</span>}
                   <div className="grid lg:grid-cols-2 gap-5">
                      {/* ======================Photo URL============= */}
                      <div className="form-control">
@@ -85,7 +83,7 @@ const AddToy = () => {
                         </label>
                         <input
                            className="text-input input input-bordered" defaultValue={user?.email}
-                           {...register("email")} placeholder="email" type="email"
+                           {...register("email", { required: true })} placeholder="email" type="email"
                         />
                      </div>
 
@@ -139,7 +137,6 @@ const AddToy = () => {
                         </label>
                         <input
                            className="text-input input input-bordered" {...register("quantity")} placeholder="quantity" type="number"
-
                         />
                      </div>
                   </div>

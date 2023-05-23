@@ -58,7 +58,6 @@ const Login = () => {
             })
             .catch(error => toast(error.message));
       }
-
       const loginInfo = {
          email,
          password,
@@ -66,10 +65,8 @@ const Login = () => {
       console.log(loginInfo);
    };
 
-
    return (
       <>
-
          <Helmet>
             <title>Login - Toy-Racer BD</title>
             <meta name="description" content="Welcome to home page" />

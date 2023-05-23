@@ -2,12 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import ToyRow from './ToyRow';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from 'react-router-dom';
 import { Helmet } from "react-helmet";
+import Spinner from '../Shared/Spinner/Spinner';
+
 const MyToys = () => {
    const { user } = useContext(AuthContext);
    const [toys, setMyToys] = useState([]);
-   const [control, setControl] = useState(false);
 
    useEffect(() => {
       fetch(`http://localhost:5555/myToys/${user?.email}`)
@@ -15,7 +16,7 @@ const MyToys = () => {
          .then((data) => {
             setMyToys(data);
          });
-   }, [user, control]);
+   }, [user]);
 
    const handleDeleteTheToy = id => {
       console.log(id);
@@ -50,42 +51,10 @@ const MyToys = () => {
       });
    };
 
-   // const handleMyToyUpdate = data => {
-   //    console.log(data);
-   //    Swal.fire({
-   //       title: 'Are you sure?',
-   //       text: "You won't be able to revert this!",
-   //       icon: 'success',
-   //       showCancelButton: true,
-   //       confirmButtonColor: '#3085d6',
-   //       cancelButtonColor: '#d33',
-   //       confirmButtonText: 'Yes, update it!'
-   //    }).then((result) => {
-   //       if (result.isConfirmed) {
-   //          fetch(`http://localhost:5555/myToys/${data?._id}`, {
-   //             method: 'PUT',
-   //             headers: {
-   //                'content-type': 'application/json',
-   //             },
-   //             body: JSON.stringify(data)
-   //          })
-   //             .then(res => res.json())
-   //             .then(data => {
-   //                console.log(data);
-   //                setControl(!control);
-   //                if (data.modifiedCount > 0) {
-   //                   Swal.fire(
-   //                      'Updated!',
-   //                      'Toy has been updated.',
-   //                      'success'
-   //                   );
-
-   //                }
-   //             });
-   //       }
-   //    });
-   // };
-
+   const navigation = useNavigation();
+   if (navigation.state === 'loading') {
+      return <Spinner />;
+   }
 
    return (
       <>
@@ -93,7 +62,6 @@ const MyToys = () => {
             <title>Toy-Racer BD - My Toys</title>
             <meta name="description" content="Welcome to home page" />
          </Helmet>
-
          <section className='bg-red-100 min-h-[calc(100vh-50px)]'>
             <h2 className="text-center text-3xl py-5 text-red-700 font-bold">My Toys : {toys.length}</h2>
 

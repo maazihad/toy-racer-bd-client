@@ -16,8 +16,6 @@ const AllToys = () => {
             setToys(data);
          });
    };
-
-
    return (
       <>
          <Helmet>

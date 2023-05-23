@@ -1,15 +1,7 @@
-// import React from 'react';
 import { Link } from "react-router-dom";
-// import UpdateToys from "./UpdateToys";
-// import { useState } from "react";
-// import UpdateModal from './UpdateModal';
 
 const ToyRow = ({ toy, handleDeleteTheToy }) => {
-
-   // const [modalShow, setModalShow] = React.useState();
-
-   // console.log(toy);
-   const { _id, category, details, email, name, price, quantity, rating, seller, url } = toy;
+   const { _id, category, email, name, price, quantity, url } = toy;
    return (
       <>
          <tr className="text-md">
@@ -39,25 +31,11 @@ const ToyRow = ({ toy, handleDeleteTheToy }) => {
                   <Link to={`/updateToys/${_id}`}>
                      <button className="btn btn-sm px-2 capitalize bg-blue-700 hover:bg-red-900">Update</button>
                   </Link>
-                  {/* <button className="btn btn-sm px-2 capitalize bg-blue-700 hover:bg-red-900">Update</button> */}
-                  {/* <label
-                     onClick={() => setModalShow(true)}
-                     htmlFor="my-modal-5" className="btn btn-sm px-2 capitalize bg-blue-700 hover:bg-red-900">update</label> */}
-
-
                   <button onClick={() => handleDeleteTheToy(_id)} className="btn btn-sm px-2 capitalize bg-red-700 hover:bg-red-900">Delete</button>
                </span>
-
             </td>
          </tr>
-         {/* <UpdateModal
-            show={modalShow}
-            handleMyToyUpdate={handleMyToyUpdate}
-            onHide={() => setModalShow(false)}
-            toy={toy}
-         /> */}
       </>
-
    );
 };
 

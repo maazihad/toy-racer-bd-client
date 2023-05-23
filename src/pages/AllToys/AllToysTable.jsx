@@ -3,9 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
 const AllToysTable = ({ toy, index }) => {
-   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-   const { _id, picture, toyName, subCategory, sellerName, sellerEmail, price, rating, availableQuantity, details } = toy;
-
+   const { register, formState: { errors } } = useForm();
+   const { _id, toyName, subCategory, sellerName, price, availableQuantity } = toy;
 
 
    return (
@@ -20,7 +19,6 @@ const AllToysTable = ({ toy, index }) => {
             {toyName}
          </td>
          <td>
-
             <select className="text-input input input-bordered w-52 border-0 " {...register("category")}>
                {
                   subCategory.map((singleName, i) => <option key={i}>{singleName}</option>)
@@ -34,7 +32,6 @@ const AllToysTable = ({ toy, index }) => {
                <Link to={`/toy/${_id}`}>
                   <button className="btn btn-sm px-2 capitalize border-0 bg-red-700 hover:bg-red-900">View Details</button>
                </Link>
-
             </div>
          </td>
       </tr>

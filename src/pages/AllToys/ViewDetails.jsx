@@ -48,9 +48,6 @@ const ViewDetails = () => {
                         </div>
                      </div>
                   </div>
-                  {/* <div className="card-actions justify-end">
-                  <button className="btn btn-primary bg-red-700 hover:bg-red-900 border-0 capitalize btn-sm w-32 rounded-none">Add this toy</button>
-               </div> */}
                </div>
             </div>
          </section>

@@ -1,7 +1,12 @@
 import { Helmet } from "react-helmet";
+import Spinner from "../Shared/Spinner/Spinner";
+import { useNavigation } from "react-router-dom";
 
 const Blog = () => {
-
+   const navigation = useNavigation();
+   if (navigation.state === 'loading') {
+      return <Spinner />;
+   }
    return (
       <>
          <Helmet>

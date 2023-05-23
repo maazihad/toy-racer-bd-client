@@ -9,7 +9,6 @@ const ShopByAge = () => {
    }, []);
    return (
       <section className="bg-red-100 min-h-[calc(100vh-300px)] py-8">
-
          <div className=" max-w-7xl mx-auto shadow-lg shadow-red-500 pb-12 rounded-lg ">
             <h2 className="text-center text-red-900  text-5xl gamjaFlower py-5">Show by Age</h2>
             <div data-aos="fade-up">
@@ -38,10 +37,8 @@ const ShopByAge = () => {
                      <img className="w-full" src={`https://cdn.shopify.com/s/files/1/1152/4590/files/category_img6.png?v=1676031270`} alt="" />
                      <p className="mt-3 gamjaFlower text-3xl font-bold text-center">12 years & up</p>
                   </div>
-
                </div>
             </div>
-
          </div>
       </section>
    );
