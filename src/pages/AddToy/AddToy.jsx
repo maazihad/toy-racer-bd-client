@@ -133,6 +133,7 @@ const AddToy = () => {
                      </label>
                      <input
                         className="text-input input input-bordered" {...register("quantity")} placeholder="quantity" type="number"
+
                      />
                   </div>
                </div>

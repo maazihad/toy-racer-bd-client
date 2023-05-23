@@ -26,24 +26,24 @@ const Navbar = () => {
    };
 
    const menuItems = <>
-      <li>
+      <li className="font-bold text-red-900">
          <NavLink to="/" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
             Home
          </NavLink>
       </li>
-      <li>
+      <li className="font-bold text-red-900">
          <NavLink to="/blog" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
             Blog
          </NavLink>
       </li>
-      <li>
+      <li className="font-bold text-red-900">
          <NavLink to="/allToys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
             All Toys
          </NavLink>
       </li>
       {
          user &&
-         <li>
+         <li className="font-bold text-red-900">
             <NavLink to="/addAToy" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
                Add a Toy
             </NavLink>
@@ -51,13 +51,13 @@ const Navbar = () => {
       }
       {
          user &&
-         <li>
+         <li className="font-bold text-red-900">
             <NavLink to="/myToys" className={({ isActive }) => isActive ? "bg-red-300 text-black " : ""}>
                My Toys
             </NavLink>
          </li>
       }
-      <li>
+      <li className="font-bold text-red-900">
          {
             user
                ? <button onClick={handleLogOut}>Logout</button>
@@ -74,37 +74,44 @@ const Navbar = () => {
                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
 
                   </label>
+
                   <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                      {menuItems}
                   </ul>
+
                </div>
                <Link to="/">
-                  <div className="flex justify-center items-center">
-                     <img className="w-24" src={logo} alt="" />
+                  <div className="flex justify-center items-center ">
+                     <img className="w-24 hidden lg:block" src={logo} alt="" />
                      <h2 className="text-4xl font-bold relative">Toy-Racer <sup className="text-xs absolute top-1 -right-5">BD</sup> </h2>
                   </div>
                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-               <ul className="menu menu-horizontal px-1">
+               <ul className="menu menu-horizontal px-1 space-x-2">
                   {menuItems}
                </ul>
             </div>
             <div className="navbar-end space-x-4">
 
-
                <div
+                  className=""
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                >
-                  {
-                     user &&
-                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                           <img src={user.photoURL ? user.photoURL : userLogo} />
-                        </div>
-                     </label>
-                  }
+                  <div className="flex items-center gap-2">
+                     <p className="text-red-900 font-bold">{user && user.email}</p>
+                     <div>
+                        {
+                           user &&
+                           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                              <div className="w-10 rounded-full">
+                                 <img src={user.photoURL ? user.photoURL : userLogo} />
+                              </div>
+                           </label>
+                        }
+                     </div>
+                  </div>
                   {
                      isHovered && (
                         <div className="absolute right-2 mt-1 py-2 w-48 bg-red-100 rounded-md shadow-xl  z-50">
