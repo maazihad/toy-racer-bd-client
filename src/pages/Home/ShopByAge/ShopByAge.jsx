@@ -8,9 +8,9 @@ const ShopByAge = () => {
       AOS.refresh();
    }, []);
    return (
-      <section className="bg-red-100 min-h-[calc(100vh-300px)]">
+      <section className="bg-red-100 min-h-[calc(100vh-300px)] py-8">
 
-         <div className=" max-w-7xl mx-auto shadow-lg shadow-red-500 pb-12 rounded-lg">
+         <div className=" max-w-7xl mx-auto shadow-lg shadow-red-500 pb-12 rounded-lg ">
             <h2 className="text-center text-red-900  text-5xl gamjaFlower py-5">Show by Age</h2>
             <div data-aos="fade-up">
                <div className="grid lg:grid-cols-6 md:grid-cols-3 mx-5 gap-5">
