@@ -4,9 +4,8 @@ import Swal from "sweetalert2";
 
 
 const UpdateModal = ({ toy, handleMyToyUpdate }) => {
-
-   // const { user } = useContext(AuthContext);
    const { _id, price, quantity, details } = toy;
+   // console.log(toy);
    const { register, handleSubmit, formState: { errors } } = useForm();
 
    return (
@@ -23,7 +22,7 @@ const UpdateModal = ({ toy, handleMyToyUpdate }) => {
 
                         <input
                            className="text-input input input-bordered hidden" {...register("_id")} placeholder="_id" type="text"
-                           defaultValue={_id}
+                           value={_id}
                         />
                         {/* ========================Price================ */}
                         <div className="form-control">

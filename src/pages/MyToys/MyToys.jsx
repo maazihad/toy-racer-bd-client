@@ -50,40 +50,41 @@ const MyToys = () => {
       });
    };
 
-   const handleMyToyUpdate = data => {
-      console.log(data);
-      Swal.fire({
-         title: 'Are you sure?',
-         text: "You won't be able to revert this!",
-         icon: 'success',
-         showCancelButton: true,
-         confirmButtonColor: '#3085d6',
-         cancelButtonColor: '#d33',
-         confirmButtonText: 'Yes, update it!'
-      }).then((result) => {
-         if (result.isConfirmed) {
-            fetch(`http://localhost:5555/myToys/${data?._id}`, {
-               method: 'PUT',
-               headers: {
-                  'content-type': 'application/json',
-               },
-               body: JSON.stringify(data)
-            })
-               .then(res => res.json())
-               .then(data => {
-                  console.log(data);
-                  if (data.modifiedCount > 0) {
-                     Swal.fire(
-                        'Updated!',
-                        'Toy has been updated.',
-                        'success'
-                     );
-                     setControl(!control);
-                  }
-               });
-         }
-      });
-   };
+   // const handleMyToyUpdate = data => {
+   //    console.log(data);
+   //    Swal.fire({
+   //       title: 'Are you sure?',
+   //       text: "You won't be able to revert this!",
+   //       icon: 'success',
+   //       showCancelButton: true,
+   //       confirmButtonColor: '#3085d6',
+   //       cancelButtonColor: '#d33',
+   //       confirmButtonText: 'Yes, update it!'
+   //    }).then((result) => {
+   //       if (result.isConfirmed) {
+   //          fetch(`http://localhost:5555/myToys/${data?._id}`, {
+   //             method: 'PUT',
+   //             headers: {
+   //                'content-type': 'application/json',
+   //             },
+   //             body: JSON.stringify(data)
+   //          })
+   //             .then(res => res.json())
+   //             .then(data => {
+   //                console.log(data);
+   //                setControl(!control);
+   //                if (data.modifiedCount > 0) {
+   //                   Swal.fire(
+   //                      'Updated!',
+   //                      'Toy has been updated.',
+   //                      'success'
+   //                   );
+
+   //                }
+   //             });
+   //       }
+   //    });
+   // };
 
 
    return (
@@ -109,7 +110,7 @@ const MyToys = () => {
                         key={toy._id}
                         toy={toy}
                         handleDeleteTheToy={handleDeleteTheToy}
-                        handleMyToyUpdate={handleMyToyUpdate}
+                     // handleMyToyUpdate={handleMyToyUpdate}
                      >
                      </ToyRow>)
                   }

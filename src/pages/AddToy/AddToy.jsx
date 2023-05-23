@@ -121,7 +121,7 @@ const AddToy = () => {
                         <span className="label-text text-lg">Rating</span>
                      </label>
                      <input
-                        className="text-input input input-bordered" {...register("rating")} placeholder="rating out of 5" type="number" min="0" max="5"
+                        className="text-input input input-bordered" {...register("rating")} placeholder="rating out of 5" type="number" min="0" max="5" defaultValue={5}
                      />
                   </div>
 
@@ -132,7 +132,7 @@ const AddToy = () => {
                         <span className="label-text text-lg">Quantity</span>
                      </label>
                      <input
-                        className="text-input input input-bordered" {...register("quantity")} placeholder="quantity" type="text"
+                        className="text-input input input-bordered" {...register("quantity")} placeholder="quantity" type="number"
                      />
                   </div>
                </div>
@@ -140,7 +140,7 @@ const AddToy = () => {
                {/* ========================Details================ */}
                <div className="form-control mt-6">
                   <label className="label font-bold">
-                     <span className="label-text text-lg">Product Details</span>
+                     <span className="label-text text-lg">Toy Details</span>
                   </label>
                   <input
                      className="text-input input input-bordered" {...register("details")} placeholder="details in product" type="text"
