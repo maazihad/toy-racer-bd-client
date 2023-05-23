@@ -1,4 +1,5 @@
 
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 const ShopByCategory = () => {
@@ -14,29 +15,25 @@ const ShopByCategory = () => {
    }, []); */
 
    return (
-      <>
-         {/* <section className="bg-red-200">
-         <div className="max-w-7xl mx-auto">
+      <Tabs>
+         <TabList>
+            <Tab>Mario</Tab>
+            <Tab disabled>Luigi</Tab>
+            <Tab>Peach</Tab>
+            <Tab>Yoshi</Tab>
+            <Tab>Toad</Tab>
+         </TabList>
 
-            <Tabs>
-               <TabList>
-                  <Tab>{categories[0].category}</Tab>
-                  <Tab>{categories[1].category}</Tab>
-                  <Tab>{categories[2].category}</Tab>
-               </TabList>
+         <TabPanel>
+            <p>
 
+            </p>
+            <p>
 
-               <TabPanel>
-                  {
-                     categories.map(singleCategory => <SingleCategory key={singleCategory._id} singleCategory={singleCategory}></SingleCategory>)
-                  }
-               </TabPanel>
-            </Tabs>
+            </p>
+         </TabPanel>
 
-
-         </div>
-      </section> */}
-      </>
+      </Tabs>
    );
 };
 

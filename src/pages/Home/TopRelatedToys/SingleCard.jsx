@@ -3,31 +3,29 @@
 const SingleCard = ({ singleCard }) => {
    const { img, title, price, rating } = singleCard;
    return (
-      <div className="card card-side bg-base-100 shadow-xl">
-         <figure><img className="w-[120px] h-[120px] object-cover" src={img} alt="Movie" /></figure>
-         <div className="card-body">
-            <h2 className="card-title">{title}</h2>
-            <div className=" m-0 p-0 mr-3">
-               <div className=" ">
-                  <div className="rating rating-sm rating-half ">
-                     <input type="radio" name={Math.round(rating)} className="rating-hidden" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
-                     <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
-                  </div>
-                  <span className='ms-2 font-bold'>
-                     {rating}
-                  </span>
-               </div>
+      <div className="card card-side rounded-none">
+
+         <figure><img className="w-[100px] h-[100px] object-cover p-2 rounded-lg" src={img} alt="Toys" /></figure>
+
+         <div className="mt-2 ml-1">
+            <p className="font-bold text-xm tracking-tight leading-5">{title}</p>
+            <div className="rating rating-xs rating-half ">
+               {/* <input type="radio" name={Math.round(rating)} className="rating-hidden" /> */}
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-1" />
+               <input type="radio" name={Math.round(rating)} className="bg-yellow-500 mask mask-star-2 mask-half-2" />
             </div>
-            <p>${price}USD</p>
+            <span className='text-xs font-bold ml-2'>
+               {rating}
+            </span>
+            <p className='text-xs font-bold'>${price} USD</p>
          </div>
       </div>
    );
