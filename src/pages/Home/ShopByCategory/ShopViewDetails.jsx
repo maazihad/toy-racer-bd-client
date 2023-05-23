@@ -1,7 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 
-const ViewDetails = () => {
+const ShopViewDetails = () => {
    const toys = useLoaderData();
    console.log(toys);
    const { _id, picture, name, sellerName, sellerEmail, price, rating, availableQuantity, details } = toys;
@@ -10,7 +10,7 @@ const ViewDetails = () => {
    return (
       <>
          <Helmet>
-            <title>View Details - Roy-racer BD</title>
+            <title>Shop Category Details || Roy-racer BD</title>
             <meta name="description" content="Welcome to home page" />
          </Helmet>
          <section className=' bg-red-100  min-h-[calc(100vh-50px)] pb-5'>
@@ -58,4 +58,4 @@ const ViewDetails = () => {
    );
 };
 
-export default ViewDetails;
+export default ShopViewDetails;
