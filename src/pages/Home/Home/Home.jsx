@@ -3,6 +3,7 @@ import Gallery from "../Gallery/Gallery";
 import ShopByAge from "../ShopByAge/ShopByAge";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 import { Helmet } from "react-helmet";
+import TopRelatedToys from "../TopRelatedToys/TopRelatedToys";
 const Home = () => {
    return (
       <>
@@ -15,6 +16,7 @@ const Home = () => {
             <Gallery />
             <ShopByCategory />
             <ShopByAge />
+            <TopRelatedToys />
          </div>
       </>
    );
