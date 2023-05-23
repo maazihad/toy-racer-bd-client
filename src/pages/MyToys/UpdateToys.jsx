@@ -21,7 +21,7 @@ const UpdateToys = () => {
       };
       // console.log(updateToys);
 
-      fetch(`http://localhost:5555/myToys/${_id}`, {
+      fetch(`https://toy-racer-bd-server.vercel.app/myToys/${_id}`, {
          method: 'PUT',
          headers: {
             'content-type': 'application/json',

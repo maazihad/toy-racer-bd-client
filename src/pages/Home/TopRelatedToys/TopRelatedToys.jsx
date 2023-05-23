@@ -6,7 +6,7 @@ const TopRelatedToys = () => {
    const [topRelatedToys, setTopRelatedToys] = useState([]);
 
    useEffect(() => {
-      fetch('http://localhost:5555/topRelatedToys')
+      fetch('https://toy-racer-bd-server.vercel.app/topRelatedToys')
          .then(res => res.json())
          .then(data => setTopRelatedToys(data));
    }, []);

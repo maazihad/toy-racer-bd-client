@@ -10,7 +10,7 @@ const AddToy = () => {
    const { register, handleSubmit, watch, formState: { errors } } = useForm();
    const onSubmit = data => {
       console.log(data);
-      fetch('http://localhost:5555/myToys', {
+      fetch('https://toy-racer-bd-server.vercel.app/myToys', {
          method: 'POST',
          headers: {
             'content-type': 'application/json',

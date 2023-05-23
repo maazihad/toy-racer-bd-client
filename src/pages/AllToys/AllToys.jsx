@@ -9,7 +9,7 @@ const AllToys = () => {
    console.log(toys);
 
    const handleSearchByText = () => {
-      fetch(`http://localhost:5555/searchByToyName/${searchToyName ? searchToyName : 'car'}`)
+      fetch(`https://toy-racer-bd-server.vercel.app/searchByToyName/${searchToyName ? searchToyName : 'car'}`)
          .then((res) => res.json())
          .then((data) => {
             console.log(data);

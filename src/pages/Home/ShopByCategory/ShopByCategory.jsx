@@ -10,7 +10,7 @@ const ShopByCategory = () => {
 
    const [shopByCategories, setShopByCategories] = useState([]);
    useEffect(() => {
-      const url = 'http://localhost:5555/shopByCatagories';
+      const url = 'https://toy-racer-bd-server.vercel.app/shopByCatagories';
       fetch(url)
          .then(res => res.json())
          .then(data => {
