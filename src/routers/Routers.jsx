@@ -42,7 +42,7 @@ const router = createBrowserRouter([
          {
             path: "/toy/:id",
             element: <SecureRoute><ViewDetails /></SecureRoute>,
-            loader: ({ params }) => fetch(`https://toy-racer-bd-server.vercel.app/allToys/${params.id}`)
+            loader: ({ params }) => fetch(`https://toy-racer-bd-server.vercel.app/singleToy/${params.id}`)
          },
          {
             path: '/addAToy',
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
          {
             path: "/updateToys/:id",
             element: <UpdateToys />,
-            loader: ({ params }) => fetch(`https://toy-racer-bd-server.vercel.app/myToys/${params.id}`)
+            // loader: ({ params }) => fetch(`http://localhost:5555/updateToy/${params.id}`)
          }
       ]
    }

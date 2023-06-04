@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 const ViewDetails = () => {
    const toys = useLoaderData();
    console.log(toys);
-   const { _id, picture, name, sellerName, sellerEmail, price, rating, availableQuantity, details } = toys;
+   const { picture, toyName, sellerName, sellerEmail, price, rating, availableQuantity, details } = toys;
 
    console.log(toys);
    return (
@@ -17,7 +17,7 @@ const ViewDetails = () => {
             <div className="card w-full max-w-7xl mx-auto bg-base-100 shadow-xl rounded-none">
                <figure><img className='shadow-lg h-[500px] w-full object-cover p-5 rounded-lg' src={picture} alt="Shoes" /></figure>
                <div className="card-body">
-                  <h2 className="card-title">Toy Name : {name}</h2>
+                  <h2 className="card-title">Toy Name : {toyName}</h2>
                   <p className="text-lg"><b>Seller Name :</b> {sellerName ? sellerName : null}</p>
                   <p>Details Description : {details}</p>
                   <p><b>Seller Email :</b> {sellerEmail ? sellerEmail : null}</p>

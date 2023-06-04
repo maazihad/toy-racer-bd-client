@@ -1,11 +1,13 @@
-import { useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateToys = () => {
-   const toy = useLoaderData();
-   console.log(toy);
-   const { _id, price, quantity, details } = toy || {};
-   console.log(_id);
+   const { id } = useParams();
+   console.log(id);
+   // const toy = useLoaderData();
+   // console.log(toy);
+   // const { _id, price, quantity, details } = toy;
+   // console.log(_id);
 
    const handleUpdateMyToy = event => {
       event.preventDefault();
@@ -14,20 +16,19 @@ const UpdateToys = () => {
       const quantity = form.quantity.value;
       const details = form.details.value;
 
-      const updateToys = {
+      const updateToy = {
          price,
          quantity,
          details,
       };
       // console.log(updateToys);
 
-      fetch(`https://toy-racer-bd-server.vercel.app/myToys/${_id}`, {
-         method: 'PUT',
+      fetch(`http://localhost:5555/updateToy/${id}`, {
+         method: "PUT",
          headers: {
-            'content-type': 'application/json',
+            'content-type': 'application/json'
          },
-         body: JSON.stringify(updateToys)
-
+         body: JSON.stringify(updateToy)
       })
          .then(res => res.json())
          .then(data => {
@@ -51,15 +52,15 @@ const UpdateToys = () => {
             <form onSubmit={handleUpdateMyToy}>
                <div className='lg:flex md:flex gap-5 mx-5 mt-6'>
                   <div className="form-control md:w-full lg:w-full ">
-                     <input type="number" name='price' defaultValue={price} placeholder="price" className="input input-bordered" />
+                     <input type="number" name='price' placeholder="price" className="input input-bordered" />
                   </div>
                   <div className="form-control md:w-full lg:w-full ">
-                     <input type="number" name='quantity' defaultValue={quantity} placeholder="Available Quantity" className="input input-bordered" />
+                     <input type="number" name='quantity' placeholder="Available Quantity" className="input input-bordered" />
                   </div>
                </div>
                <div className="lg:flex md:flex gap-5 mx-5 mt-6">
                   <div className="form-control md:w-full lg:w-full">
-                     <input type="text" name='details' defaultValue={details} placeholder="Details..." className="input input-bordered" />
+                     <input type="text" name='details' placeholder="Details..." className="input input-bordered" />
                   </div>
                </div>
                <div className='lg:flex md:flex gap-5 mx-5 mt-6'>
