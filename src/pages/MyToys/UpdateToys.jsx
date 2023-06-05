@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateToys = () => {
    const { id } = useParams();
+   const navigate = useNavigate();
 
    const handleUpdateMyToy = event => {
       event.preventDefault();
@@ -10,7 +11,6 @@ const UpdateToys = () => {
       const price = form.price.value;
       const quantity = form.quantity.value;
       const details = form.details.value;
-
       const updateToy = {
          price,
          quantity,
@@ -35,6 +35,7 @@ const UpdateToys = () => {
                   icon: 'success',
                   confirmButtonText: 'Updated'
                });
+               navigate('/myToys');
             }
          });
 
