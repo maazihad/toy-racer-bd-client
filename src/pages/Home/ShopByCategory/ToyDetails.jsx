@@ -16,7 +16,6 @@ const ToyDetails = () => {
          <Helmet>
             <title>Roy-racer BD || Toy Details</title>
          </Helmet>
-
          <section className=' bg-red-100  min-h-[calc(100vh-50px)] pb-5'>
             <div className="card w-full max-w-7xl mx-auto bg-base-100 shadow-xl rounded-none">
                <figure><img className='shadow-lg h-[800px] w-full object-cover  rounded-lg' src={picture} alt="Shoes" /></figure>

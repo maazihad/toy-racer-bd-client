@@ -14,20 +14,20 @@ const Footer = () => {
                <p>Copyright &copy; <span>{moment().format("MMMM, YYYY")}</span> || All rights reserved by authority.</p>
             </div>
             <div>
-               <span className="footer-title">Services</span>
+               <span className="footer-title font-bold">Services</span>
                <Link to="/footer/marketing" className="link link-hover">Marketing</Link>
                <Link to="/" className="link link-hover">Branding</Link>
                <Link to="/" className="link link-hover">Advertisement</Link>
             </div>
             <div>
-               <span className="footer-title">Company</span>
+               <span className="footer-title font-bold">Company</span>
                <Link to="/footer/aboutus" className="link link-hover">About us</Link>
                <Link to="/" className="link link-hover">Home</Link>
                <Link to="/footer/contact" className="link link-hover">Contact</Link>
                <Link to="/blog" className="link link-hover">Blog</Link>
             </div>
             <div>
-               <span className="footer-title">Legal</span>
+               <span className="footer-title font-bold">Legal</span>
                <Link to="/footer/terms" className="link link-hover">Terms & Conditions</Link>
                <Link to="/footer/policy" className="link link-hover">Privacy policy</Link>
                <Link to="/" className="link link-hover">Cookie policy</Link>

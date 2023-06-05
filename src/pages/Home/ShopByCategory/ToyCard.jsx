@@ -4,9 +4,7 @@ import '@smastrom/react-rating/style.css';
 import { useEffect } from "react";
 import AOS from "aos";
 
-
 const ToyCard = ({ toy }) => {
-
    const { _id, toyName, picture, price, rating } = toy || {};
 
    useEffect(() => {

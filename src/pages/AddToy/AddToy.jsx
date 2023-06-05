@@ -9,7 +9,7 @@ const AddToy = () => {
    const { user } = useContext(AuthContext);
    const { register, handleSubmit, formState: { errors } } = useForm();
    const onSubmit = data => {
-      console.log(data);
+      // console.log(data);
       fetch('https://toy-racer-bd-server.vercel.app/myToys', {
          method: 'POST',
          headers: {
@@ -19,7 +19,7 @@ const AddToy = () => {
       })
          .then(res => res.json())
          .then(data => {
-            console.log(data);
+            // console.log(data);
             if (data.insertedId) {
                Swal.fire({
                   position: 'center',
@@ -30,7 +30,6 @@ const AddToy = () => {
                });
             }
          });
-
    };
 
    return (

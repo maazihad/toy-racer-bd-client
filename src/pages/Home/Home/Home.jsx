@@ -9,8 +9,7 @@ const Home = () => {
       <>
          <div className="min-h-[calc(100vh-50px)]">
             <Helmet>
-               <title>Toy-Racer BD - Home</title>
-               <meta name="description" content="Welcome to home page" />
+               <title>Toy-Racer BD || Home</title>
             </Helmet>
             <Banner />
             <Gallery />

@@ -6,23 +6,21 @@ const AllToys = () => {
    const allToys = useLoaderData();
    const [toys, setToys] = useState(allToys);
    const [searchToyName, setSearchToyName] = useState("");
-   console.log(toys);
+   // console.log(toys);
 
    const handleSearchByText = () => {
       fetch(`https://toy-racer-bd-server.vercel.app/searchByToyName/${searchToyName ? searchToyName : 'car'}`)
          .then((res) => res.json())
          .then((data) => {
-            console.log(data);
+            // console.log(data);
             setToys(data);
          });
    };
    return (
       <>
          <Helmet>
-            <title>Toy-Racer BD - All Toys</title>
-            <meta name="description" content="Welcome to home page" />
+            <title>Toy-Racer BD || All Toys</title>
          </Helmet>
-
          <section className="bg-red-100 pb-20">
             <div className="overflow-x-auto w-full mx-auto max-w-7xl  ">
                <div className="flex gap-5 justify-center pt-5">
