@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 
 const AddToy = () => {
 
    const { user } = useContext(AuthContext);
+   const navigate = useNavigate();
    const { register, handleSubmit, formState: { errors } } = useForm();
    const onSubmit = data => {
       // console.log(data);
@@ -26,8 +28,9 @@ const AddToy = () => {
                   icon: 'success',
                   title: 'Successfully add a Toy',
                   showConfirmButton: false,
-                  timer: 1000
+                  timer: 1500
                });
+               navigate('/myToys');
             }
          });
    };
