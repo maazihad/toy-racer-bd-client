@@ -11,27 +11,26 @@ const Footer = () => {
                   <img className='w-20' src={logo} alt="" />
                </Link>
                <p>Toy-Racer BD<br />A Bangladeshi Toy Marketplace. || Since 2023.</p>
-               <p>&copy; All rights reserved  || <span>{moment().format("MMMM, YYYY")}</span> </p>
+               <p>Copyright &copy; <span>{moment().format("MMMM, YYYY")}</span> || All rights reserved by authority.</p>
             </div>
             <div>
                <span className="footer-title">Services</span>
-               <a className="link link-hover">Branding</a>
-               <a className="link link-hover">Design</a>
-               <a className="link link-hover">Marketing</a>
-               <a className="link link-hover">Advertisement</a>
+               <Link to="/footer/marketing" className="link link-hover">Marketing</Link>
+               <Link to="/" className="link link-hover">Branding</Link>
+               <Link to="/" className="link link-hover">Advertisement</Link>
             </div>
             <div>
                <span className="footer-title">Company</span>
-               <Link className="link link-hover">About us</Link>
-               <Link className="link link-hover">Home</Link>
-               <Link className="link link-hover">Contact</Link>
-               <Link className="link link-hover">Blog</Link>
+               <Link to="/footer/aboutus" className="link link-hover">About us</Link>
+               <Link to="/" className="link link-hover">Home</Link>
+               <Link to="/footer/contact" className="link link-hover">Contact</Link>
+               <Link to="/blog" className="link link-hover">Blog</Link>
             </div>
             <div>
                <span className="footer-title">Legal</span>
-               <Link className="link link-hover">Terms of users</Link>
-               <Link className="link link-hover">Privacy policy</Link>
-               <Link className="link link-hover">Cookie policy</Link>
+               <Link to="/footer/terms" className="link link-hover">Terms & Conditions</Link>
+               <Link to="/footer/policy" className="link link-hover">Privacy policy</Link>
+               <Link to="/" className="link link-hover">Cookie policy</Link>
             </div>
          </div>
       </footer>

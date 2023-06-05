@@ -3,11 +3,6 @@ import Swal from "sweetalert2";
 
 const UpdateToys = () => {
    const { id } = useParams();
-   console.log(id);
-   // const toy = useLoaderData();
-   // console.log(toy);
-   // const { _id, price, quantity, details } = toy;
-   // console.log(_id);
 
    const handleUpdateMyToy = event => {
       event.preventDefault();
@@ -21,9 +16,9 @@ const UpdateToys = () => {
          quantity,
          details,
       };
-      // console.log(updateToys);
+      console.log(updateToy);
 
-      fetch(`http://localhost:5555/updateToy/${id}`, {
+      fetch(`https://toy-racer-bd-server.vercel.app/updateToy/${id}`, {
          method: "PUT",
          headers: {
             'content-type': 'application/json'
@@ -38,7 +33,7 @@ const UpdateToys = () => {
                   title: 'Success!',
                   text: 'Update Successfully!!!',
                   icon: 'success',
-                  confirmButtonText: 'Coooool'
+                  confirmButtonText: 'Updated'
                });
             }
          });

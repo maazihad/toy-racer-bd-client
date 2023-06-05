@@ -11,6 +11,13 @@ import MyToys from "../pages/MyToys/MyToys";
 import SecureRoute from "./SecureRoute";
 import UpdateToys from "../pages/MyToys/UpdateToys";
 import ViewDetails from "../pages/AllToys/ViewDetails";
+import ToyDetails from "../pages/Home/ShopByCategory/ToyDetails";
+import Marketing from "../pages/FooterExtraPages/Marketing";
+import AboutUs from "../pages/FooterExtraPages/AboutUs";
+import Contact from "../pages/FooterExtraPages/Contact";
+import FooterLayout from "../layouts/FooterLayout";
+import TermsAndConditions from "../pages/FooterExtraPages/TermsAndConditions";
+import Policy from "../pages/FooterExtraPages/Policy";
 
 const router = createBrowserRouter([
    {
@@ -23,39 +30,72 @@ const router = createBrowserRouter([
             element: <Home />
          },
          {
-            path: '/login',
+            path: 'login',
             element: <Login />
          },
          {
-            path: '/register',
+            path: 'register',
             element: <Register />
          },
          {
-            path: '/blog',
+            path: 'blog',
             element: <Blog />
          },
          {
-            path: '/allToys',
+            path: 'allToys',
             element: <AllToys />,
             loader: () => fetch('https://toy-racer-bd-server.vercel.app/allToys')
          },
          {
-            path: "/toy/:id",
+            path: "toy/:id",
             element: <SecureRoute><ViewDetails /></SecureRoute>,
             loader: ({ params }) => fetch(`https://toy-racer-bd-server.vercel.app/singleToy/${params.id}`)
          },
          {
-            path: '/addAToy',
+            path: "toyDetails/:id",
+            element: <SecureRoute><ToyDetails /></SecureRoute>,
+            loader: ({ params }) => fetch(`https://toy-racer-bd-server.vercel.app/toyDetails/${params.id}`)
+         },
+         {
+            path: 'addAToy',
             element: <SecureRoute><AddToy /></SecureRoute>
          },
          {
-            path: '/myToys',
+            path: 'myToys',
             element: <SecureRoute><MyToys /></SecureRoute>
          },
          {
-            path: "/updateToys/:id",
-            element: <UpdateToys />,
-            // loader: ({ params }) => fetch(`http://localhost:5555/updateToy/${params.id}`)
+            path: "updateToy/:id",
+            element: <SecureRoute><UpdateToys /></SecureRoute>
+         },
+
+      ]
+   },
+
+   //============footer routes
+   {
+      path: "footer/",
+      element: <FooterLayout />,
+      children: [
+         {
+            path: "aboutus",
+            element: <AboutUs />
+         },
+         {
+            path: "marketing",
+            element: <Marketing />
+         },
+         {
+            path: "contact",
+            element: <Contact />
+         },
+         {
+            path: "terms",
+            element: <TermsAndConditions />
+         },
+         {
+            path: "policy",
+            element: <Policy />
          }
       ]
    }

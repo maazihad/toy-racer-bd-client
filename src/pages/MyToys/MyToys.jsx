@@ -71,7 +71,7 @@ const MyToys = () => {
                   <thead className="rounded-none">
                      <tr className='text-red-900 font-bold'>
                         <th>Toy Photo & Product Name</th>
-                        <th>Added by</th>
+                        <th>Toy Details</th>
                         <th>Email</th>
                         <th className="text-center">Price</th>
                         <td className="text-center">Quantity</td>
@@ -84,7 +84,6 @@ const MyToys = () => {
                            key={toy._id}
                            toy={toy}
                            handleDeleteTheToy={handleDeleteTheToy}
-                        // handleMyToyUpdate={handleMyToyUpdate}
                         >
                         </ToyRow>)
                      }

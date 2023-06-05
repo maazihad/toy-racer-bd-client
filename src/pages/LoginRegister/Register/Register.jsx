@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { updateCurrentUser } from "firebase/auth";
 import { Helmet } from "react-helmet";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
-   const [userName, setUserName] = useState('');
-   const [photoURL, setPhotoURL] = useState('');
-   const { createUser } = useContext(AuthContext);
+   const navigate = useNavigate();
+   const { createUser, updateUserProfile } = useContext(AuthContext);
    const [showPassword, setShowPassword] = useState(false);
 
    const handleRegister = (event) => {
@@ -29,63 +29,89 @@ const Register = () => {
       };
       console.log(regInfo);
 
-      createUser(email, password)
-         .then(result => {
-            const loggedUser = result.user;
-            loggedUser.updateProfile({
-               displayName: name,
-               photoURL: url,
-            });
-            console.log(loggedUser);
-            if (loggedUser) {
-               Swal.fire({
-                  position: 'center',
-                  icon: 'success',
-                  title: 'User create successfully.',
-                  showConfirmButton: false,
-                  timer: 1000
-               });
-            }
-         })
-         .catch(error => console.log(error.message));
+      if (!/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+         toast("Please provide a valid email");
+         return;
+      }
+      else if (!/(?=.*[A-Z])/.test(password)) {
+         toast('Please add at least one Uppercase.');
+         return;
+      }
+      else if (!/(?=.*[0-9])/.test(password)) {
+         toast('Please add at least on numeric number.');
+         return;
+      }
+      else if (!/(?=.*[!@#$%^&*])/.test(password)) {
+         toast('Please add a one special character.');
+         return;
+      }
+      else if (!/(?=.{6,})/.test(password)) {
+         toast('Please password must be 6 character.');
+         return;
+      }
+      else {
+         createUser(email, password)
+            .then(result => {
+               const loggedUser = result.user;
+               console.log(loggedUser);
+               updateUserProfile(name, url)
+                  .then(() => {
+                     //saved user
+                  })
+                  .catch((error) => {
+                     toast(error.message);
+                  });
+               if (loggedUser) {
+                  Swal.fire({
+                     position: 'center',
+                     icon: 'success',
+                     title: 'Welcome!! Your are in!!',
+                     showConfirmButton: false,
+                     timer: 1500
+                  });
+               }
+               navigate("/");
+            })
+            .catch(error => console.log(error.message));
+      }
+
+
    };
 
    return (
-
       <>
          <Helmet>
-            <title>Sign Up - Toy-Racer BD</title>
-            <meta name="description" content="Welcome to home page" />
+            <title>Toy-Racer BD || SignUp</title>
          </Helmet>
          <div className="hero  bg-base-100 ">
-            <div className=" grid grid-cols-6 bg-purple-200">
-               <div className="text-center lg:text-left col-start-1 col-span-2 " >
-                  <img className="object-cover lg:min-h-[600px]" src={`https://eply.com/wp-content/uploads/2021/12/ePly-1.jpg`} alt="" />
+            <div className=" grid lg:grid-cols-6 ">
+               <div className="text-center lg:text-left lg:col-start-1 lg:col-span-2 " >
+                  <img className="object-cover lg:h-[700px] hidden lg:block" src={`https://eply.com/wp-content/uploads/2021/12/ePly-1.jpg`} alt="" />
                </div>
-               <div className="card w-full rounded-none shadow-md bg-red-100 col-start-3 col-span-6">
-                  <div className="card-body">
+               <div className="lg:w-full lg:pt-9 w-screen rounded-none shadow-md bg-red-100 lg:col-start-3 lg:col-span-6">
+                  <div className="card-body min-h-[calc(100vh-50px)]">
                      <form onSubmit={handleRegister}>
                         <h3 className="text-3xl font-bold mb-2">Create an account</h3>
                         {/* ===================Name================ */}
                         <div className="form-control">
                            <label className="label">
-                              <span className="label-text">Name</span>
+                              <span className="label-text">Name*</span>
                            </label>
-                           <input type="text" placeholder="email" name="name" className="input input-bordered" />
+                           <input type="text" placeholder="Enter your name" name="name" className="input input-bordered" required />
                         </div>
                         {/* ===================Email================ */}
                         <div className="form-control">
                            <label className="label">
-                              <span className="label-text">Email</span>
+                              <span className="label-text">Email*</span>
                            </label>
-                           <input type="email" placeholder="email" name="email" className="input input-bordered" />
+                           <input type="email" placeholder="Enter a valid email" name="email" className="input input-bordered" required />
                         </div>
                         {/* ===================Password================ */}
                         <div className="form-control relative">
                            <label className="label">
-                              <span className="label-text">Password</span>
+                              <span className="label-text">Password*</span>
                            </label>
-                           <input type={showPassword ? "text" : "password"} name="password" placeholder="password" className=" input input-bordered" />
+                           <input type={showPassword ? "text" : "password"} name="password" placeholder="Ensure 6 character long password" className=" input input-bordered" required />
 
                            <span className='absolute right-5 top-12' onClick={() => setShowPassword(!showPassword)}>
                               <small>
@@ -100,9 +126,9 @@ const Register = () => {
                         {/* ===================photo url================ */}
                         <div className="form-control">
                            <label className="label">
-                              <span className="label-text">Name</span>
+                              <span className="label-text">Photo URL*</span>
                            </label>
-                           <input type="url" placeholder="Photo url" name="url" className="input input-bordered" />
+                           <input type="url" placeholder="Photo url" name="url" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
                            <button className="btn btn-primary capitalize bg-red-400 hover:bg-red-800 border-0">Sign Up</button>

@@ -11,9 +11,7 @@ const Blog = () => {
       <>
          <Helmet>
             <title>Toy-Racer BD - Blog page</title>
-            <meta name="description" content="Welcome to home page" />
          </Helmet>
-
          <section className="bg-red-100 min-h-[calc(100vh-50px)]">
             <h2 className="text-4xl text-center font-black text-red-700 py-10">Answer the Questions</h2>
             <div className="space-y-3 max-w-7xl mx-auto pb-10">

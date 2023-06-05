@@ -2,171 +2,104 @@
 import { useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import CategoryOne from './CategoryOne';
-import CategoryTwo from './CategoryTwo';
-import CategoryThree from './CategoryThree';
+import ToyTab from './ToyTab';
 
 const ShopByCategory = () => {
+   const [tabIndex, setTabIndex] = useState(0);
+   const [toys, setMyToys] = useState([]);
 
-   const [shopByCategories, setShopByCategories] = useState([]);
    useEffect(() => {
-      const url = 'https://toy-racer-bd-server.vercel.app/shopByCatagories';
-      fetch(url)
-         .then(res => res.json())
-         .then(data => {
-            console.log(data[0].category_1);
-            setShopByCategories(data[0]);
+      fetch("https://toy-racer-bd-server.vercel.app/shopToys", {
+         method: "GET",
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            setMyToys(data);
          });
    }, []);
+
+   //===========sub-category: Vintage Toy cars
+   const pickups = toys.filter(toy => toy.subCategory === "pickups");
+   const roadsters = toys.filter(toy => toy.subCategory === "roadsters");
+   const sedans = toys.filter(toy => toy.subCategory === "sedans");
+
+   //===========sub-category : racing toy cars
+   const speedsters = toys.filter(toy => toy.subCategory === "speedsters");
+   const supercars = toys.filter(toy => toy.subCategory === "supercars");
+   const thunderbolts = toys.filter(toy => toy.subCategory === "thunderbolts");
+
+   //=============off-road toy cars 
+   const warriors = toys.filter(toy => toy.subCategory === "warriors");
+   const monsters = toys.filter(toy => toy.subCategory === "monsters");
+   const recons = toys.filter(toy => toy.subCategory === "recons");
+
 
    return (
       <section className='bg-red-100 py-10'>
          <h2 className="text-center text-red-900  text-6xl lobster py-5">Shop By Category</h2>
          <p className="text-center text-xl uppercase mb-5">This is our best Categories</p>
          <div className='mx-auto max-w-7xl'>
-
-            <Tabs>
-               <TabList className=" text-center space-x-5 mb-2">
-                  <Tab className="btn capitalize text-lg hover:bg-red-700 border-none btn-outline">Vintage Toy Cars</Tab>
-                  <Tab className="btn capitalize text-lg hover:bg-red-700 border-none btn-outline">Racing Toy Cars</Tab>
-                  <Tab className="btn capitalize text-lg hover:bg-red-700 border-none btn-outline">Off-Road Toy Cars</Tab>
+            <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+               <TabList className="flex gap-3 justify-center">
+                  <Tab className="text-md py-2 px-3 cursor-pointer bg-red-700 text-white hover:bg-red-900 hover:text-red-200">Vintage Toy Cars</Tab>
+                  <Tab className="text-md py-2 px-3 cursor-pointer bg-red-700 text-white hover:bg-red-900 hover:text-red-200">Racing Toy Cars</Tab>
+                  <Tab className="text-md py-2 px-3 cursor-pointer bg-red-700 text-white hover:bg-red-900 hover:text-red-200">Off-road Toy Cars</Tab>
                </TabList>
-
-
                <TabPanel>
                   <Tabs>
-                     <TabList className="no-underline text-center space-x-5 mb-8">
-                        <Tab className="btn capitalize text-md hover:bg-red-700 border-none btn-outline">Die-cast Toy Cars</Tab>
-                        <Tab className="btn capitalize text-md hover:bg-red-700 border-none btn-outline">Tinplate Toy Cars</Tab>
-                        <Tab className="btn capitalize text-md hover:bg-red-700 border-none btn-outline">Pedal Cars</Tab>
+                     <TabList>
+                        <Tab>Pickups</Tab>
+                        <Tab>Roadsters</Tab>
+                        <Tab>Sedans</Tab>
                      </TabList>
-
-
-                     <TabPanel >
-                        <div className="grid lg:grid-cols-3 gap-5">
-                           {
-                              shopByCategories?.category_1?.map(cOne => <CategoryOne
-                                 key={cOne.car_id}
-                                 cOne={cOne}
-                              ></CategoryOne>)
-                           }
-                        </div>
+                     <TabPanel>
+                        <ToyTab toys={pickups}></ToyTab>
                      </TabPanel>
                      <TabPanel>
-                        <div className="grid lg:grid-cols-3 gap-5">
-                           {
-                              shopByCategories?.category_2?.map(cTwo => <CategoryTwo
-                                 key={cTwo.car_id}
-                                 cTwo={cTwo}
-                              ></CategoryTwo>)
-                           }
-                        </div>
+                        <ToyTab toys={roadsters}></ToyTab>
                      </TabPanel>
                      <TabPanel>
-                        <div className="grid lg:grid-cols-3 gap-5">
-                           {
-                              shopByCategories?.category_3?.map(cThree => <CategoryThree
-                                 key={cThree.car_id}
-                                 cThree={cThree}
-                              ></CategoryThree>)
-                           }
-                        </div>
+                        <ToyTab toys={sedans}></ToyTab>
                      </TabPanel>
                   </Tabs>
                </TabPanel>
-
-
                <TabPanel>
                   <Tabs>
-                     <TabList className="no-underline text-center space-x-5 mb-8">
-                        <Tab className="btn capitalize text-md hover:bg-red-700 border-none btn-outline">Slot Cars</Tab>
-                        <Tab className="btn capitalize text-md hover:bg-red-700 border-none btn-outline">Remote-Controlled (RC) Cars</Tab>
-                        <Tab className="btn capitalize text-md hover:bg-red-700 border-none btn-outline">Scale Model Race Cars</Tab>
+                     <TabList>
+                        <Tab>Speedsters</Tab>
+                        <Tab>Supercars</Tab>
+                        <Tab>Thunderbolts</Tab>
                      </TabList>
-
-                     <TabPanel >
-                        <div className="grid lg:grid-cols-3 gap-5">
-                           {
-                              shopByCategories?.category_1?.map(cOne => <CategoryOne
-                                 key={cOne.car_id}
-                                 cOne={cOne}
-                              ></CategoryOne>)
-                           }
-                        </div>
+                     <TabPanel>
+                        <ToyTab toys={speedsters}></ToyTab>
                      </TabPanel>
                      <TabPanel>
-                        <div className="grid lg:grid-cols-3 gap-5">
-                           {
-                              shopByCategories?.category_2?.map(cTwo => <CategoryTwo
-                                 key={cTwo.car_id}
-                                 cTwo={cTwo}
-                              ></CategoryTwo>)
-                           }
-                        </div>
+                        <ToyTab toys={supercars}></ToyTab>
                      </TabPanel>
                      <TabPanel>
-                        <div className="grid lg:grid-cols-3 gap-5">
-                           {
-                              shopByCategories?.category_3?.map(cThree => <CategoryThree
-                                 key={cThree.car_id}
-                                 cThree={cThree}
-                              ></CategoryThree>)
-                           }
-                        </div>
+                        <ToyTab toys={thunderbolts}></ToyTab>
                      </TabPanel>
                   </Tabs>
                </TabPanel>
-
-
                <TabPanel>
                   <Tabs>
-                     <TabList className="no-underline text-center space-x-5 mb-8">
-                        <Tab className="btn capitalize text-md hover:bg-red-700 border-none btn-outline">Monster Trucks</Tab>
-                        <Tab className="btn capitalize text-md hover:bg-red-700 border-none btn-outline">Rock Crawlers</Tab>
-                        <Tab className="btn capitalize text-md hover:bg-red-700 border-none btn-outline">Off-Road Toy Cars</Tab>
+                     <TabList>
+                        <Tab>Warriors</Tab>
+                        <Tab>Monsters</Tab>
+                        <Tab>Recons</Tab>
                      </TabList>
-
-                     <TabPanel >
-                        <div className="grid lg:grid-cols-3 gap-5">
-                           {
-                              shopByCategories?.category_1?.map(cOne => <CategoryOne
-                                 key={cOne.car_id}
-                                 cOne={cOne}
-                              ></CategoryOne>)
-                           }
-                        </div>
+                     <TabPanel>
+                        <ToyTab toys={warriors}></ToyTab>
                      </TabPanel>
                      <TabPanel>
-                        <div className="grid lg:grid-cols-3 gap-5">
-                           {
-                              shopByCategories?.category_2?.map(cTwo => <CategoryTwo
-                                 key={cTwo.car_id}
-                                 cTwo={cTwo}
-                              ></CategoryTwo>)
-                           }
-                        </div>
+                        <ToyTab toys={monsters}></ToyTab>
                      </TabPanel>
                      <TabPanel>
-                        <div className="grid lg:grid-cols-3 gap-5">
-                           {
-                              shopByCategories?.category_3?.map(cThree => <CategoryThree
-                                 key={cThree.car_id}
-                                 cThree={cThree}
-                              ></CategoryThree>)
-                           }
-                        </div>
+                        <ToyTab toys={recons}></ToyTab>
                      </TabPanel>
                   </Tabs>
                </TabPanel>
-
             </Tabs>
-
-
-
-
-
-
-
          </div>
       </section>
    );

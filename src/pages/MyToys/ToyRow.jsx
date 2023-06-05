@@ -28,7 +28,7 @@ const ToyRow = ({ toy, handleDeleteTheToy }) => {
             <td className="text-center">{quantity}</td>
             <td className="text-center">
                <span className="space-x-1">
-                  <Link to={`/updateToys/${_id}`}>
+                  <Link to={`/updateToy/${_id}`}>
                      <button className="btn btn-sm px-2 capitalize bg-blue-700 hover:bg-red-900">Update</button>
                   </Link>
                   <button onClick={() => handleDeleteTheToy(_id)} className="btn btn-sm px-2 capitalize bg-red-700 hover:bg-red-900">Delete</button>

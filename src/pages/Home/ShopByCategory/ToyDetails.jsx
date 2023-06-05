@@ -1,31 +1,31 @@
-import { useLoaderData } from 'react-router-dom';
+import { Rating } from "@smastrom/react-rating";
 import { Helmet } from "react-helmet";
-import { Rating } from '@smastrom/react-rating';
-import '@smastrom/react-rating/style.css';
+import { useLoaderData, useNavigation } from "react-router-dom";
+import Spinner from "../../Shared/Spinner/Spinner";
 
-const ViewDetails = () => {
+const ToyDetails = () => {
    const toys = useLoaderData();
-   console.log(toys);
-   const { picture, toyName, sellerName, sellerEmail, price, rating, availableQuantity, details } = toys;
-
+   const { toyName, picture, price, rating, details } = toys;
+   // console.log(toys);
+   const navigation = useNavigation();
+   if (navigation.state === 'loading') {
+      return <Spinner />;
+   }
    return (
       <>
          <Helmet>
-            <title>Roy-racer BD || View Details</title>
+            <title>Roy-racer BD || Toy Details</title>
          </Helmet>
+
          <section className=' bg-red-100  min-h-[calc(100vh-50px)] pb-5'>
             <div className="card w-full max-w-7xl mx-auto bg-base-100 shadow-xl rounded-none">
-               <figure><img className='shadow-lg h-[500px] w-full object-cover p-5 rounded-lg' src={picture} alt="Shoes" /></figure>
-               <div className="card-body">
+               <figure><img className='shadow-lg h-[800px] w-full object-cover  rounded-lg' src={picture} alt="Shoes" /></figure>
+               <div className="card-body pt-5">
                   <h2 className="card-title">Toy Name : {toyName}</h2>
-                  <p className="text-lg"><b>Seller Name :</b> {sellerName ? sellerName : null}</p>
-                  <p>Details Description : {details}</p>
-                  <p><b>Seller Email :</b> {sellerEmail ? sellerEmail : null}</p>
-
+                  <p><b>Details : </b> {details}</p>
                   <div className="flex justify-between">
                      <div>
                         <p><b>Price :</b> ${price}</p>
-                        <p><b>Available Quantity :</b> {availableQuantity}</p>
                      </div>
                      <div className="flex items-center m-0 p-0 mr-3">
                         <div className=" flex grow items-center">
@@ -48,4 +48,4 @@ const ViewDetails = () => {
    );
 };
 
-export default ViewDetails;
+export default ToyDetails;

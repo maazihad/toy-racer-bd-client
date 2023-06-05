@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../../assets/login/login.json";
 import Lottie from "lottie-react";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-hot-toast";
@@ -19,6 +19,12 @@ const Login = () => {
       const form = event.target;
       const email = form.email.value;
       const password = form.password.value;
+
+      const loginInfo = {
+         email,
+         password,
+      };
+      console.log(loginInfo);
 
       if (!/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(email)) {
          toast("Please provide a valid email");
@@ -51,25 +57,19 @@ const Login = () => {
                      icon: 'success',
                      title: 'Successfully login!!!',
                      showConfirmButton: false,
-                     timer: 1000
+                     timer: 1500
                   });
                }
                navigate(from, { replace: true });
             })
             .catch(error => toast(error.message));
       }
-      const loginInfo = {
-         email,
-         password,
-      };
-      console.log(loginInfo);
    };
 
    return (
       <>
          <Helmet>
-            <title>Login - Toy-Racer BD</title>
-            <meta name="description" content="Welcome to home page" />
+            <title>Toy-Racer BD || Login</title>
          </Helmet>
          <div className="hero min-h-screen bg-base-100">
             <div className="hero-content flex-col lg:flex-row">

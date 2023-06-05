@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 const AddToy = () => {
 
    const { user } = useContext(AuthContext);
-   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+   const { register, handleSubmit, formState: { errors } } = useForm();
    const onSubmit = data => {
       console.log(data);
       fetch('https://toy-racer-bd-server.vercel.app/myToys', {
@@ -36,8 +36,7 @@ const AddToy = () => {
    return (
       <>
          <Helmet>
-            <title>Add a toy - Toy-Racer BD</title>
-            <meta name="description" content="Welcome to home page" />
+            <title>Toy-Racer BD || Add a toy</title>
          </Helmet>
          <section className="bg-red-100 min-h-[calc(100vh-50px)]">
             <h2 className="text-4xl text-center font-black text-red-700 py-10">Add a toys here</h2>
@@ -58,7 +57,7 @@ const AddToy = () => {
                      {/* ========================Name================ */}
                      <div className="form-control">
                         <label className="label font-bold">
-                           <span className="label-text text-lg">Name</span>
+                           <span className="label-text text-lg">Toy Name</span>
                         </label>
                         <input
                            className="text-input input input-bordered" {...register("name")} placeholder="Name" type="text"

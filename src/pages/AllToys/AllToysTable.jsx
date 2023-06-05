@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
 const AllToysTable = ({ toy, index }) => {
-   const { register, formState: { errors } } = useForm();
+   const { register } = useForm();
    const { _id, toyName, subCategory, sellerName, price, availableQuantity } = toy;
 
 
